@@ -39,16 +39,16 @@ public class DenyLoginCommand extends BaseCommand {
     public boolean onCommand(final CommandSender sender, Command command, String label, String[] args) {
 
         if (sender instanceof Player) {
-            sender.sendMessage(TAG + "This command can only be run from the console.");
+            sender.sendMessage(TAG + "控制台命令.");
             return true;
         }
         // Args contains sub command label as first arg.
         if (args.length == 1) {
-            StaticLog.logInfo("Please specify a player to temporarily deny log-in.");
+            StaticLog.logInfo("请指定一个玩家.");
             return true;
         }
         else if (args.length == 2) {
-            StaticLog.logInfo("Please specify the log-in denial duration (minutes).");
+            StaticLog.logInfo("请指定一个时长(分钟).");
             return true;
         }
         long base = 60000; // minutes (!)
@@ -74,7 +74,7 @@ public class DenyLoginCommand extends BaseCommand {
         NCPAPIProvider.getNoCheatPlusAPI().denyLogin(name, duration);
         if (player == null) return;
         player.kickPlayer(reason);
-        StaticLog.logInfo("(" + sender.getName() + ") Kicked " + player.getName() + " for " + duration/60000 +" minutes: " + reason);
+        StaticLog.logInfo("(" + sender.getName() + ") 已踢出 " + player.getName() + " for " + duration/60000 +" minutes: " + reason);
     }
 
     /* (non-Javadoc)

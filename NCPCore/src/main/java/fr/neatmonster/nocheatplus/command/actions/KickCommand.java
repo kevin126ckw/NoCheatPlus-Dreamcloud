@@ -43,7 +43,7 @@ public class KickCommand extends BaseCommand {
         }
         // Args contains "kick" as first arg.
         if (args.length < 2) {
-            StaticLog.logInfo("Please specify a player to kick (Reason is optional). ");
+            StaticLog.logInfo("请指定一个玩家 (可选添加理由). ");
             return true;
         }
         final String name = args[1];
@@ -61,7 +61,7 @@ public class KickCommand extends BaseCommand {
             @Override
             public void run() {
                 player.kickPlayer(reason);
-                StaticLog.logInfo("(" + sender.getName() + ") Kicked " + player.getName() + " : " + reason);
+                StaticLog.logInfo("(" + sender.getName() + ") 已踢出 " + player.getName() + " : " + reason);
             }
         });
     }

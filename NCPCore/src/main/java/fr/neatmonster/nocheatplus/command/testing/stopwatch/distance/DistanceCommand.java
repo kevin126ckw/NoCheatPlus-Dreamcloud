@@ -27,7 +27,7 @@ import fr.neatmonster.nocheatplus.command.testing.stopwatch.StopWatchRegistry;
 
 public class DistanceCommand  extends AbstractCommand<StopWatchRegistry> {
 
-    public static final String TAG = ChatColor.GRAY +""+ ChatColor.BOLD + "[" + ChatColor.RED + "NC+" + ChatColor.GRAY +""+ ChatColor.BOLD + "] " + ChatColor.GRAY;
+    public static final String TAG = String.valueOf(ChatColor.GRAY);
 
     public DistanceCommand(StopWatchRegistry access) {
         super(access, "distance", null);

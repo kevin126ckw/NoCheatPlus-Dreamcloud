@@ -113,7 +113,7 @@ public class DebugPlayerCommand extends BaseCommand {
         }
 
         if (args.length <= 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Bad setup. Command usage: /ncp debug player (playername) yes/no:(checktype).");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Bad setup. Command usage: /ncp debug player (玩家) yes/no:(检测类型).");
             return true;
         }
         // TODO: Wild cards (all players)?

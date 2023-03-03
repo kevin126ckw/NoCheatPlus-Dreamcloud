@@ -37,17 +37,17 @@ public class AllowLoginCommand extends BaseCommand {
 			String label, String[] args) {
 
 		if (args.length != 2) {
-			sender.sendMessage((sender instanceof Player ? TAG : "") + "Please specify a player to allow to log-in again.");
+			sender.sendMessage((sender instanceof Player ? TAG : "") + "请指定一个玩家.");
 			return true;
 		}
 		if (args[1].trim().equals("*")){
-			sender.sendMessage((sender instanceof Player ? TAG : "") + "Removed " + NCPAPIProvider.getNoCheatPlusAPI().allowLoginAll() + " players from the 'deny-login' list.");
+			sender.sendMessage((sender instanceof Player ? TAG : "") + "已允许 " + NCPAPIProvider.getNoCheatPlusAPI().allowLoginAll() + " 加入.");
 		}
 		else if (NCPAPIProvider.getNoCheatPlusAPI().allowLogin(args[1])){
-			sender.sendMessage((sender instanceof Player ? TAG : "") + "Allow to login again: " + args[1].trim());
+			sender.sendMessage((sender instanceof Player ? TAG : "") + "允许登录: " + args[1].trim());
 		}
 		else {
-			sender.sendMessage((sender instanceof Player ? TAG : "") + "Was not denied to login: " + args[1].trim());
+			sender.sendMessage((sender instanceof Player ? TAG : "") + "没有被禁止登录: " + args[1].trim());
 		}
 		return true;
 	}

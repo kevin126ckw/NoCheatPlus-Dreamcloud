@@ -38,7 +38,7 @@ import fr.neatmonster.nocheatplus.utilities.OnDemandTickListener;
  */
 public class StopWatchRegistry {
 
-    public static final String TAG = ChatColor.GRAY +""+ ChatColor.BOLD + "[" + ChatColor.RED + "NC+" + ChatColor.GRAY +""+ ChatColor.BOLD + "] " + ChatColor.GRAY;
+    public static final String TAG = String.valueOf(ChatColor.GRAY);
 
     // TODO: Make its own plugin + no NCP dependency.
 

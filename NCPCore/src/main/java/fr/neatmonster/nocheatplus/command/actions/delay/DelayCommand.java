@@ -39,7 +39,7 @@ public class DelayCommand extends DelayableCommand {
 	@Override
 	public boolean execute(CommandSender sender, Command command, String label, String[] alteredArgs, long delay) {
 		if (alteredArgs.length <= 2) {
-			StaticLog.logInfo("Bad setup. Command usage /ncp delay delay=(ticks) (command to delay).");
+			StaticLog.logInfo("用法: /ncp delay delay=(ticks) (命令).");
 			return true;
 		}
 		final String cmd = AbstractCommand.join(alteredArgs, 1);

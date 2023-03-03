@@ -149,7 +149,7 @@ public class TopCommand extends BaseCommand{
                 }
             }
             if (views.isEmpty()) {
-                builder.append((sender instanceof Player ? TAG : CTAG) + "Nothing to display.");
+                builder.append((sender instanceof Player ? TAG : CTAG) + "没有可展示的内容.");
             }
             final String message = builder.toString();
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin,

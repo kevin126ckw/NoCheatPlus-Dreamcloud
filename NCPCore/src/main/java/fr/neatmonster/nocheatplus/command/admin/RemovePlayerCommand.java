@@ -55,11 +55,11 @@ public class RemovePlayerCommand extends BaseCommand {
         }
 
         if (args.length < 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Please specify a player's data to remove.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家's data to remove.");
             return true;
         }
         else if (args.length > 3) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Too many arguments. Command usage: /ncp removeplayer (playername) (checktype).");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Too many arguments. Command usage: /ncp removeplayer (玩家) (检测类型).");
             return true;
         }
         String playerName = args[1];

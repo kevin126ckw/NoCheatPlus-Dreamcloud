@@ -54,7 +54,7 @@ public class InspectCommand extends BaseCommand {
                 args = new String[]{args[0], sender.getName()};
             } 
             else {
-                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Please specify a player to inspect.");
+                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家 to inspect.");
                 return true;
             }
         }

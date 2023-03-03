@@ -48,11 +48,11 @@ public class BanCommand extends BaseCommand {
 
         // Args contains "ban" as first arg.
         if (args.length == 1) {
-            StaticLog.logWarning("Please specify a player to ban.");
+            StaticLog.logWarning("请指定一个玩家.");
             return true;
         }
         else if (args.length == 2) {
-            StaticLog.logWarning("Please specify the ban time (minutes, reason is optional).");
+            StaticLog.logWarning("请指定一个时长 (分钟, 可选添加理由).");
             return true;
         }
         final String name = args[1].trim();
@@ -80,9 +80,9 @@ public class BanCommand extends BaseCommand {
         if (player == null && !IdUtil.isValidMinecraftUserName(name)) {
             UUID id = IdUtil.UUIDFromStringSafe(name);
             if (id != null) {
-                StaticLog.logWarning("Banning by UUID might not work (" + id.toString()+"), relay to the vanilla command.");
+                StaticLog.logWarning("封禁UUID无效 (" + id.toString()+"), 转化为原版封禁.");
             } else {
-                StaticLog.logWarning("Might not be a valid user name: " + name);
+                StaticLog.logWarning("无效的用户名: " + name);
             }
         }
         if (player != null){
@@ -95,7 +95,7 @@ public class BanCommand extends BaseCommand {
     }
 
     private void logBan(CommandSender sender, Player player, String name, String reason) {
-        StaticLog.logInfo("(" + sender.getName() + ") Banned " + name + (player != null ? ("/" + player.getName()) : "") + " : " + reason);
+        StaticLog.logInfo("(" + sender.getName() + ") 封禁了 " + name + (player != null ? ("/" + player.getName()) : "") + " : " + reason);
     }
 
     /* (non-Javadoc)

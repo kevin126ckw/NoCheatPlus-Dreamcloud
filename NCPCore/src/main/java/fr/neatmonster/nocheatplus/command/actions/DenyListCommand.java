@@ -38,7 +38,7 @@ public class DenyListCommand extends BaseCommand {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		final String[] kicked = NCPAPIProvider.getNoCheatPlusAPI().getLoginDeniedPlayers();
 		if (kicked.length < 100) Arrays.sort(kicked);
-		sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Players denied to login (temporarily):");
+		sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "玩家被拒绝登录 (临时):");
 		sender.sendMessage(StringUtil.join(Arrays.asList(kicked), " "));
 		return true;
 	}

@@ -55,7 +55,7 @@ public class ExemptionsCommand extends BaseCommand {
         }
 
         if (args.length != 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Please specify a player.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家.");
             return true;
         } 
         String playerName = args[1].trim();

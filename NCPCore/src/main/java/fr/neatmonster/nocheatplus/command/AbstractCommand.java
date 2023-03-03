@@ -39,7 +39,7 @@ import fr.neatmonster.nocheatplus.permissions.RegisteredPermission;
  *
  */
 public abstract class AbstractCommand<A> implements TabExecutor{
-    public static final String TAG = ChatColor.GRAY +""+ ChatColor.BOLD + "[" + ChatColor.RED + "NC+" + ChatColor.GRAY +""+ ChatColor.BOLD + "] " + ChatColor.GRAY;
+    public static final String TAG = String.valueOf(ChatColor.GRAY);
     public static final String CTAG = "[NoCheatPlus] ";
 
     public static final List<String> noTabChoices = Collections.unmodifiableList(new LinkedList<String>());

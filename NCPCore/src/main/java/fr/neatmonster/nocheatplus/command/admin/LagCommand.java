@@ -44,12 +44,12 @@ public class LagCommand extends BaseCommand {
         else cGO = cR = cG = bO = "";
 
         StringBuilder builder = new StringBuilder(300);
-        builder.append((sender instanceof Player ? TAG : CTAG) + "Displaying lag information...\n");
+        builder.append((sender instanceof Player ? TAG : CTAG) + "显示服务器延迟...\n");
 
         // Lag spikes.
         long[] spikeDurations = TickTask.getLagSpikeDurations();
         int[] spikes = TickTask.getLagSpikes();
-        builder.append(cR +""+ bO + "»Lag Spikes«\n");  
+        builder.append(cR +""+ bO + "»延迟高峰«\n");
 
         if (spikes[0] == 0){
             builder.append("No lag spike(s) greater than "+ cGO +""+ spikeDurations[0] + cG +" ms within the last 40 to 60 minutes.");

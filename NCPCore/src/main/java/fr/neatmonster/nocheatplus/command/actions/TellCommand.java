@@ -45,7 +45,7 @@ public class TellCommand extends BaseCommand {
 			return true;
 		}
 		if (args.length < 3) {
-			StaticLog.logInfo("Bad setup. Command usage: /ncp tell (playername) (message to send).");
+			StaticLog.logInfo("用法: /ncp tell (玩家) （消息).");
 			return true;
 		}
 		final String name = args[1].trim();
