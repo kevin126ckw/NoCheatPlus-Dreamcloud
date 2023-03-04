@@ -44,7 +44,6 @@ public class LagCommand extends BaseCommand {
         else cGO = cR = cG = bO = "";
 
         StringBuilder builder = new StringBuilder(300);
-        builder.append((sender instanceof Player ? TAG : CTAG) + "显示服务器延迟...\n");
 
         // Lag spikes.
         long[] spikeDurations = TickTask.getLagSpikeDurations();
@@ -56,7 +55,7 @@ public class LagCommand extends BaseCommand {
         }
         else if (spikes[0] > 0){
 
-            builder.append(cG + "总峰数: " + cGO +""+ spikes[0] + cG + "\n这些是60分钟内峰值大于 " + cGO +""+ spikeDurations[0] + cG + " ms的延迟高峰.");
+            builder.append(cG + "总峰数: " + cGO +""+ spikes[0] + cG + "\n这些是"+cGO+ " 60 "+cG+"分钟内峰值大于 " + cGO +""+ spikeDurations[0] + cG + " ms的延迟高峰.");
             builder.append("\n" + "结果:");
 
             for (int i = 0; i < spikeDurations.length; i++){
@@ -68,7 +67,7 @@ public class LagCommand extends BaseCommand {
                     continue; // Could be break.
                 }
                 else if (i < spikeDurations.length - 1){
-                    builder.append(cG + "\n• " + cGO +""+ (spikes[i] - spikes[i + 1]) + cG + " 次 " + cGO +""+ cGO +""+ spikeDurations[i] + cG + "ms -> " + cGO +""+ spikeDurations[i + 1] + cG + ". ");
+                    builder.append(cG + "\n• " + cGO +""+ (spikes[i] - spikes[i + 1]) + cG + " 次 " + cGO +""+ cGO +""+ spikeDurations[i] + cG + " ms -> " + cGO +""+ spikeDurations[i + 1] + cG + ". ");
                 }
                 else{
                     builder.append(cG + "\n• " + cGO +""+ spikes[i] + cG + " 次 " + cGO +""+ cGO +""+ spikeDurations[i] +"ms"+ cG + ".");
@@ -84,7 +83,7 @@ public class LagCommand extends BaseCommand {
         for (long ms : new long[]{second, medium, max}){
             double lag = TickTask.getLag(ms, true);
             int p = Math.max(0, (int) ((lag - 1.0) * 100.0));
-            builder.append(cG + "\n• 在过去" + cGO +""+ StringUtil.fdec1.format((double) ms / 1200.0) + cG + " 秒有 " + cG + "" + cGO + p + cG + "% 的 TPS 延迟.");
+            builder.append(cG + "\n• 在过去 " + cGO +""+ StringUtil.fdec1.format((double) ms / 1200.0) + cG + " 秒有 " + cG + "" + cGO + p + cG + "% 的 TPS 延迟.");
         }
         // Send message.
         sender.sendMessage(builder.toString());
