@@ -221,7 +221,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.CHAT_COMMANDS_LEVEL, 10, 785);
         set(ConfPaths.CHAT_COMMANDS_SHORTTERM_TICKS, 18, 785);
         set(ConfPaths.CHAT_COMMANDS_SHORTTERM_LEVEL, 3, 785);
-        set(ConfPaths.CHAT_COMMANDS_ACTIONS, "log:commands:0:5:cf cancel cmdc:kickcommands vl>20 log:commands:0:5:cf cancel cmdc:tempkick1", 1154);
+        set(ConfPaths.CHAT_COMMANDS_ACTIONS, "cancel", 1154);
         // Text (ordering on purpose).
         // Normal
         set(ConfPaths.CHAT_TEXT_CHECK, "default", 785);
@@ -236,7 +236,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.CHAT_TEXT_FREQ_SHORTTERM_FACTOR, 0.7, 785);
         set(ConfPaths.CHAT_TEXT_FREQ_SHORTTERM_WEIGHT, 3.0, 785);
         set(ConfPaths.CHAT_TEXT_FREQ_SHORTTERM_LEVEL, 20.0, 785);
-        set(ConfPaths.CHAT_TEXT_FREQ_SHORTTERM_ACTIONS, "log:chatfast:2:3:icf cancel cmdc:kickchatfast:0:5 vl>20 cancel log:chatfast:0:5:cif cmdc:kickchatfast vl>40 cancel log:chatfast:0:5:cif cmdc:kickchat1", 1154);
+        set(ConfPaths.CHAT_TEXT_FREQ_SHORTTERM_ACTIONS, "cancel", 1154);
         // Message
         set(ConfPaths.CHAT_TEXT_MSG_LETTERCOUNT, 1.0, 785);
         set(ConfPaths.CHAT_TEXT_MSG_PARTITION, 1.0, 785);
@@ -273,7 +273,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.CHAT_RELOG_WARNING_NUMBER, 1, 785);
         set(ConfPaths.CHAT_RELOG_KICKMESSAGE, "Too fast re-login, try with a little delay.", 785);
         set(ConfPaths.CHAT_RELOG_WARNING_TIMEOUT, 60000L, 785);
-        set(ConfPaths.CHAT_RELOG_ACTIONS, "log:relog:0:10:cf cancel vl>20 log:relog:0:10:cf cancel cmdc:tempkick5", 1154);
+        set(ConfPaths.CHAT_RELOG_ACTIONS, "cancel", 1154);
         // Logins
         set(ConfPaths.CHAT_LOGINS_CHECK, "default", 785);
         set(ConfPaths.CHAT_LOGINS_STARTUPDELAY, 600, 785);
@@ -338,7 +338,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.FIGHT_DIRECTION_STRICT, true, 1154);
 	    set(ConfPaths.FIGHT_DIRECTION_FAILALL, true, 1154);
         set(ConfPaths.FIGHT_DIRECTION_PENALTY, 75L, 1154);
-        set(ConfPaths.FIGHT_DIRECTION_ACTIONS, "vl>2 log:fdirectionlowvl:5:6:i vl>10 cancel log:fdirection:2:4:if vl>50 cancel log:fdirection:0:7:icf cmdc:kicksuspiciouscombat:1:5", 1154);
+        set(ConfPaths.FIGHT_DIRECTION_ACTIONS, "cancel", 1154);
         // FastHeal, legacy
         set(ConfPaths.FIGHT_FASTHEAL_CHECK, "default", 785);
         set(ConfPaths.FIGHT_FASTHEAL_INTERVAL, 4000L, 785);
@@ -355,7 +355,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.FIGHT_IMPOSSIBLEHIT_ACTIONS, "cancel", 1154);
         // NoSwing
         set(ConfPaths.FIGHT_NOSWING_CHECK, "default", 785);
-        set(ConfPaths.FIGHT_NOSWING_ACTIONS, "vl>2 cancel vl>10 log:noswing:2:5:i cancel", 1154);
+        set(ConfPaths.FIGHT_NOSWING_ACTIONS, "cancel", 1154);
         // Reach
         set(ConfPaths.FIGHT_REACH_CHECK, "default", 785);
         set(ConfPaths.FIGHT_REACH_SURVIVALDISTANCE, 4.02, 1154); 
@@ -401,7 +401,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.INVENTORY_INSTANTBOW_ACTIONS, "cancel", 1154);
         // InstantEat, legacy. Disabled since it seems to interfer with FastConsume somehow... 
         set(ConfPaths.INVENTORY_INSTANTEAT_CHECK, false, 1154); 
-        set(ConfPaths.INVENTORY_INSTANTEAT_ACTIONS, "log:instanteat:2:5:i cancel", 1154);
+        set(ConfPaths.INVENTORY_INSTANTEAT_ACTIONS, "cancel", 1154);
         // FastConsume
         set(ConfPaths.INVENTORY_FASTCONSUME_CHECK, "default", 785);
         set(ConfPaths.INVENTORY_FASTCONSUME_DURATION, 1.4, 1154); // The actual consumption time needed would be 1.5s. Set to 1.4 for leniency
@@ -489,11 +489,7 @@ public class DefaultConfig extends ConfigFile {
             set(ConfPaths.MOVING_CREATIVEFLY_EYTRA_STRICT, true, 1154);
         }
         set(ConfPaths.MOVING_CREATIVEFLY_ACTIONS,
-                "cancel"
-                        + " vl>100 cancel log:creativefly:8:9:i log:flyfile:0:10:f"
-                        + " vl>900 cancel log:creativefly:2:4:i log:flyfile:0:5:cf"
-                        + " vl>2000 cancel log:creativefly:0:5:icf cmdc:kickfly:0:15"
-                        , 1154);
+                "cancel", 1154);
         // MorePackets
         set(ConfPaths.MOVING_MOREPACKETS_CHECK, "default", 785);
         set(ConfPaths.MOVING_MOREPACKETS_SECONDS, 6, 785);
@@ -541,10 +537,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.MOVING_SURVIVALFLY_LENIENCY_FREEZEINAIR, true, 1143);
         set(ConfPaths.MOVING_SURVIVALFLY_SETBACKPOLICY_FALLDAMAGE, true, 785);
         set(ConfPaths.MOVING_SURVIVALFLY_SETBACKPOLICY_VOIDTOVOID, false, 1154);
-        set(ConfPaths.MOVING_SURVIVALFLY_ACTIONS, "cancel" 
-            + " vl>100 cancel log:survivalfly:10:11:i log:flyfile:6:15:f" 
-            + " vl>700 cancel log:survivalfly:8:5:i log:flyfile:1:3:f" 
-            + " vl>2100 cancel log:survivalflyhighvl:0:4:icf cmdc:kickfly:0:15", 1154);     
+        set(ConfPaths.MOVING_SURVIVALFLY_ACTIONS, "cancel", 1154);
         // SurvivalFly - Hover Subcheck
         set(ConfPaths.MOVING_SURVIVALFLY_HOVER_CHECK, true, 785); // Not a check type yet.
         set(ConfPaths.MOVING_SURVIVALFLY_HOVER_STEP, 5, 785);

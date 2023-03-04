@@ -21,18 +21,18 @@ commands:
         # permissions: nocheatplus.admin.(...)
         usage: |
                §6§l+§7§l§m------------------§6§l+
-               §7§l|§6§l Commands Overview  §7§l |
+               §7§l|§6§l 命令总览  §7§l |
                §6§l+§7§l§m------------------§6§l+
-               §7§l•§c§o /<command> top (entries) (check/s...) (sort by...)§7 - Display the top results of a given check.
-               §7§l•§c§o /<command> info (playername)§7 - Violation summary for a player.
-               §7§l•§c§o /<command> inspect (playername)§7 - Status info for a player.
-               §7§l•§c§o /<command> notify on|off§7 - Toggle in-game notifications on/off.
-               §7§l•§c§o /<command> removeplayer (playername) [(check type)]§7 - Clear a check's data for a given player.
-               §7§l•§c§o /<command> reload§7 - Reload the configuration.
-               §7§l•§c§o /<command> lag§7 - Lag-related info.
-               §7§l•§c§o /<command> version§7 - Display information about both the server and the plugin.
-               §7§l•§c§o /<command> commands§7 - List all commands, including auxiliary ones.
-               §7§l•§c§o /<command> stopwatch (start/stop/distance/return) [distance]§7 - Simple command for measuring time and distances. Useful for testing purposes.
+               §7§l•§c§o /<command> top (项目...) (排序)§7 - 显示计数器排行.
+               §7§l•§c§o /<command> info (玩家)§7 - 显示玩家计数器状态.
+               §7§l•§c§o /<command> inspect (玩家)§7 - 查询玩家状态.
+               §7§l•§c§o /<command> notify §7 - 开/关作弊通知.
+               §7§l•§c§o /<command> removeplayer (玩家) [(类型)]§7 - 移除玩家数据.
+               §7§l•§c§o /<command> reload§7 - 重新加载配置文件.
+               §7§l•§c§o /<command> lag§7 - 延迟信息显示.
+               §7§l•§c§o /<command> version§7 - 显示当前版本.
+               §7§l•§c§o /<command> commands§7 - 显示所有命令.
+               §7§l•§c§o /<command> stopwatch (行为) [距离]§7 - 测试时间/距离.
 
 permissions:
     # Check silent permissions (no log alerts if present).
@@ -45,8 +45,6 @@ permissions:
     nocheatplus.checks.blockbreak.frequency.silent:
         default: false
     nocheatplus.checks.blockbreak.noswing.silent:
-        default: false
-    nocheatplus.checks.blockbreak.reach.silent:
         default: false
     nocheatplus.checks.blockbreak.wrongblock.silent:
         default: false
@@ -346,7 +344,6 @@ permissions:
                 description: Allow toggling notifications.
                 children:
                     nocheatplus.notify: true
-            nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.reload:
                 description: Allow the player to reload NoCheatPlus configuration.
                 children:
