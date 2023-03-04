@@ -34,14 +34,7 @@ public class CommandsCommand extends BaseCommand {
 
     final String[] moreCommands = new String[]{
             // TODO: Mmmmh, spaghetti.
-            ChatColor.GOLD +""+ ChatColor.BOLD + "Console commands:",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC + "/<command> ban (玩家) (reason)"+ChatColor.GRAY+" - 封禁玩家.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> kick (玩家) (reason)"+ChatColor.GRAY+" - 踢出玩家.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> tell (玩家) (message)"+ChatColor.GRAY+" - 发送私信.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> delay (延迟:ticks) (命令)"+ChatColor.GRAY+" - 延迟执行命令.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> denylogin (玩家) (分钟) (reason)"+ChatColor.GRAY+" - 暂时禁止玩家登录.",
-            "",
-            ChatColor.GOLD +""+ ChatColor.BOLD + "Auxiliary commands:",
+            ChatColor.GOLD +""+ ChatColor.BOLD + "可用命令:",
             ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC + "/<command> log counters"+ChatColor.GRAY+" - 显示计数器汇总.",
             ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> reset counters" +ChatColor.GRAY+ " - 重置计数器.",
             ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> debug player (玩家) yes/no:(检测类型)"+ChatColor.GRAY+" - 开始一个检测类型的debug.",
