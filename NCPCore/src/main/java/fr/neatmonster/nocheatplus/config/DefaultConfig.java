@@ -206,18 +206,18 @@ public class DefaultConfig extends ConfigFile {
         /* Chat */
         set(ConfPaths.CHAT_ACTIVE, "default", 1144);
         // Captcha.
-        set(ConfPaths.CHAT_CAPTCHA_CHECK, "false", 1154);
+        set(ConfPaths.CHAT_CAPTCHA_CHECK, "true", 1154);
         set(ConfPaths.CHAT_CAPTCHA_SKIP_COMMANDS, false, 785);
         set(ConfPaths.CHAT_CAPTCHA_CHARACTERS, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?><", 1154);
         set(ConfPaths.CHAT_CAPTCHA_LENGTH, 6, 785);
-        set(ConfPaths.CHAT_CAPTCHA_QUESTION, "&c&l(!)&7 Please type '&6[captcha]&7' to continue using chat.", 1154);
-        set(ConfPaths.CHAT_CAPTCHA_SUCCESS, "&c&l(!)&7 Antispam check passed.", 1154);
+        set(ConfPaths.CHAT_CAPTCHA_QUESTION, "&c请输入 '&6[captcha]&7' 来通过验证.", 1154);
+        set(ConfPaths.CHAT_CAPTCHA_SUCCESS, "&a*** 验证通过 ***.", 1154);
         set(ConfPaths.CHAT_CAPTCHA_TRIES, 3, 785);
         set(ConfPaths.CHAT_CAPTCHA_ACTIONS, "cancel", 785);
         // Commands
         set(ConfPaths.CHAT_COMMANDS_CHECK, "default", 785);
         set(ConfPaths.CHAT_COMMANDS_EXCLUSIONS, Arrays.asList("undo", "redo"), 1154);
-        set(ConfPaths.CHAT_COMMANDS_HANDLEASCHAT, Arrays.asList("me", "msg", "emsg", "essentials:msg", "tell", "etell", "essentials:tell", "say", "esay", "essentials:say", "whisper", "ewhisper", "essentials:whisper", "w", "essentials:w", "ew", "r", "er", "essentials:r", "reply", "essentials:reply", "ereply"), 1154);
+        set(ConfPaths.CHAT_COMMANDS_HANDLEASCHAT, Arrays.asList("tell", "msg", "cmi msg", "reply","cmi reply"), 1154);
         set(ConfPaths.CHAT_COMMANDS_LEVEL, 10, 785);
         set(ConfPaths.CHAT_COMMANDS_SHORTTERM_TICKS, 18, 785);
         set(ConfPaths.CHAT_COMMANDS_SHORTTERM_LEVEL, 3, 785);
@@ -264,14 +264,14 @@ public class DefaultConfig extends ConfigFile {
         // Warning (commands + chat).
         set(ConfPaths.CHAT_WARNING_CHECK, true, 785);
         set(ConfPaths.CHAT_WARNING_LEVEL, 67, 785);
-        set(ConfPaths.CHAT_WARNING_MESSAGE, "\n  &c&l(!)&7 Please slow down chat, you might get kicked by the antispam.\n \n", 1154);
+        set(ConfPaths.CHAT_WARNING_MESSAGE, "\n  &c&l请降低语速.\n \n", 1154);
         set(ConfPaths.CHAT_WARNING_TIMEOUT, 10, 785);
         // Relog
         set(ConfPaths.CHAT_RELOG_CHECK, "default", 785);
         set(ConfPaths.CHAT_RELOG_TIMEOUT, 5000L, 785);
-        set(ConfPaths.CHAT_RELOG_WARNING_MESSAGE, "&c&l(!)&7 You relogged really fast! If you keep doing that, you're going to be banned.", 1154);
+        set(ConfPaths.CHAT_RELOG_WARNING_MESSAGE, "&c&l重新登录过快.", 1154);
         set(ConfPaths.CHAT_RELOG_WARNING_NUMBER, 1, 785);
-        set(ConfPaths.CHAT_RELOG_KICKMESSAGE, "Too fast re-login, try with a little delay.", 785);
+        set(ConfPaths.CHAT_RELOG_KICKMESSAGE, "重新登录过快.", 785);
         set(ConfPaths.CHAT_RELOG_WARNING_TIMEOUT, 60000L, 785);
         set(ConfPaths.CHAT_RELOG_ACTIONS, "cancel", 1154);
         // Logins
@@ -280,7 +280,7 @@ public class DefaultConfig extends ConfigFile {
         set(ConfPaths.CHAT_LOGINS_PERWORLDCOUNT, false, 785);
         set(ConfPaths.CHAT_LOGINS_SECONDS, 10, 785);
         set(ConfPaths.CHAT_LOGINS_LIMIT, 10, 785);
-        set(ConfPaths.CHAT_LOGINS_KICKMESSAGE, "Too many players are logging in at the same time, please try again later.", 1154);
+        set(ConfPaths.CHAT_LOGINS_KICKMESSAGE, "相同时段登录玩家数量过多,请稍后重试.", 1154);
 
 
         /* Combined */

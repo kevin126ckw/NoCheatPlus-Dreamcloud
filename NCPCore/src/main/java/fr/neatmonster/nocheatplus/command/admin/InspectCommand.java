@@ -110,7 +110,7 @@ public class InspectCommand extends BaseCommand {
 
         builder.append("\n "+ c1 + "" + c2 + "•" + c1 + " 是一个 " + player.getGameMode() + " 模式玩家.");
 
-        builder.append("\n "+ c1 + "" + c2 + "•" + c1 + (mCC.assumeSprint ? "奔跑可用." : " 不可奔跑."));
+        builder.append("\n "+ c1 + "" + c2 + "•" + c1 + (mCC.assumeSprint ? " 奔跑可用." : " 不可奔跑."));
 
         builder.append("\n "+ c1 + "" + c2 + "•" + c1 +" 飞行速度: " + player.getFlySpeed());
 
@@ -157,7 +157,7 @@ public class InspectCommand extends BaseCommand {
         }
 
         if (player.isInsideVehicle()) {
-            builder.append("\n "+ c1 + "" + c2 + "•" + c1 + " 正在驾驶载具 (" + player.getVehicle().getType() +") at " + locString(player.getVehicle().getLocation()));
+            builder.append("\n "+ c1 + "" + c2 + "•" + c1 + " 正在驾驶载具 (" + player.getVehicle().getType() +") [" + locString(player.getVehicle().getLocation())+"]");
         }
 
         if (player.isDead()) {
@@ -187,7 +187,7 @@ public class InspectCommand extends BaseCommand {
     }
 
     private static final String locString(Location loc) {
-        return loc.getWorld().getName() + " at " + loc.getBlockX() + "," + loc.getBlockY() + "," + loc.getBlockZ();
+        return loc.getWorld().getName() + "," + loc.getBlockX() + "," + loc.getBlockY() + "," + loc.getBlockZ();
     }
 
     /* (non-Javadoc)
