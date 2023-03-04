@@ -38,10 +38,10 @@ public class NotifyCommand extends BaseCommand {
 	public boolean onCommand(CommandSender sender, Command command, String alias, String[] args) {
 		if (DataManager.getPlayerData((Player) sender).getNotifyOff()) {
 			DataManager.getPlayerData((Player) sender).setNotifyOff(false);
-			sender.sendMessage(TAG + "已" + ChatColor.GREEN + "开启" + ChatColor.GRAY + "作弊检测通知.");
+			sender.sendMessage(TAG + "已" + ChatColor.GREEN + " 开启 " + ChatColor.GRAY + "作弊检测通知.");
 		} else {
 			DataManager.getPlayerData((Player) sender).setNotifyOff(true);
-			sender.sendMessage(TAG + "已" + ChatColor.RED + "关闭" + ChatColor.GRAY + "作弊检测通知.");
+			sender.sendMessage(TAG + "已" + ChatColor.RED + " 关闭 " + ChatColor.GRAY + "作弊检测通知.");
 		}
 		return true;
 	}

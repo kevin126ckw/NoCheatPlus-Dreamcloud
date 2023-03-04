@@ -99,7 +99,7 @@ public class InfoCommand extends BaseCommand {
                     +cG+bold + "\n• "+ cG + "最大: " + cR + maxVL + cG + " VL.");
             }
         } 
-        else sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "No violations to display for player " + cR + playerName);
+        else sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有关于玩家 " + cR + playerName +cG+" 的记录.");
         
     }
 

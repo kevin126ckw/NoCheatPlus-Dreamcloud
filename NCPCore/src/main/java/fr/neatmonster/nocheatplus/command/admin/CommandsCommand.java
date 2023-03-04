@@ -55,7 +55,7 @@ public class CommandsCommand extends BaseCommand {
         String all = TAG + ChatColor.GOLD + "所有命令:\n";
         Command cmd = plugin.getCommand("nocheatplus");
         if (cmd != null){
-            all += cmd.getUsage().replace("<command>", "ncp");
+            all += cmd.getUsage().replace("<command>", "nocheatplus");
         }
         all += StringUtil.join(Arrays.asList(moreCommands), "\n");
         allCommands = all;
