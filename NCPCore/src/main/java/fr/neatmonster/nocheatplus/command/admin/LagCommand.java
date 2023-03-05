@@ -79,7 +79,7 @@ public class LagCommand extends BaseCommand {
         long max = 50L * (1L + TickTask.lagMaxTicks) * TickTask.lagMaxTicks;
         long medium = 50L * TickTask.lagMaxTicks;
         long second = 1200L;
-        builder.append(cR +""+ bO + "»TPS 延迟«" + cG + "\n[Perc.][time tracked], 0% = 20 TPS");
+        builder.append(cR +""+ bO + "»TPS 延迟«" + cG + "\n[百分比][追踪时间], 0% = 20 TPS");
         for (long ms : new long[]{second, medium, max}){
             double lag = TickTask.getLag(ms, true);
             int p = Math.max(0, (int) ((lag - 1.0) * 100.0));

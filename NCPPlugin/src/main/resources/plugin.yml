@@ -21,7 +21,7 @@ commands:
         # permissions: nocheatplus.admin.(...)
         usage: |
                §6§l+§7§l§m------------------§6§l+
-               §7§l|§6§l    命令总览    §7§l |
+               §7§l|§6§l     命令总览     §7§l |
                §6§l+§7§l§m------------------§6§l+
                §7§l•§c§o /<command> top (项目...) (排序)§7 - 显示计数器排行.
                §7§l•§c§o /<command> info (玩家)§7 - 显示玩家计数器状态.
@@ -32,7 +32,6 @@ commands:
                §7§l•§c§o /<command> lag§7 - 延迟信息显示.
                §7§l•§c§o /<command> version§7 - 显示当前版本.
                §7§l•§c§o /<command> commands§7 - 显示所有命令.
-               §7§l•§c§o /<command> stopwatch (行为) [距离]§7 - 测试时间/距离.
 
 permissions:
     # Check silent permissions (no log alerts if present).

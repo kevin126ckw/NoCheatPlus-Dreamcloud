@@ -16,6 +16,7 @@ package fr.neatmonster.nocheatplus.command.admin.reset;
 
 import fr.neatmonster.nocheatplus.NCPAPIProvider;
 import fr.neatmonster.nocheatplus.stats.Counters;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -36,7 +37,7 @@ public class ResetCommand extends BaseCommand{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String alias, String[] args) {
 		NCPAPIProvider.getNoCheatPlusAPI().getGenericInstance(Counters.class).resetAll();
-		sender.sendMessage("重设计数器.");
+		sender.sendMessage(ChatColor.GREEN + "计数器已被重置.");
 		return true;
 	}
 

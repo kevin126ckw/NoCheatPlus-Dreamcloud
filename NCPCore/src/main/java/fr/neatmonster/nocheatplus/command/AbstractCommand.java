@@ -194,7 +194,7 @@ public abstract class AbstractCommand<A> implements TabExecutor{
             AbstractCommand<?> subCommand = subCommands.get(arg);
             if (subCommand != null){
                 if (!subCommand.testPermission(sender, command, alias, args)){
-                    sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "You don't have permission.");
+                    sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "你没有权限.");
                     return true;
                 }
                 final boolean res = subCommand.onCommand(sender, command, alias, args);

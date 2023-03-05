@@ -55,11 +55,11 @@ public class RemovePlayerCommand extends BaseCommand {
         }
 
         if (args.length < 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家's data to remove.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家来移除.");
             return true;
         }
         else if (args.length > 3) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Too many arguments. Command usage: /ncp removeplayer (玩家) (检测类型).");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "用法: /ncp removeplayer (玩家) (检测类型).");
             return true;
         }
         String playerName = args[1];
@@ -69,8 +69,8 @@ public class RemovePlayerCommand extends BaseCommand {
             try{
                 checkType = CheckType.valueOf(args[2].toUpperCase().replace('-', '_').replace('.', '_'));
             } catch (Exception e){
-                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Could not interpret: " + args[2]);
-                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Check type should be one of: " + StringUtil.join(Arrays.asList(CheckType.values()), c6 + ", " + c3));
+                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "参数错误: " + args[2]);
+                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "类型必须是一个: " + StringUtil.join(Arrays.asList(CheckType.values()), c6 + ", " + c3));
                 return true;
             }
         }
@@ -78,7 +78,7 @@ public class RemovePlayerCommand extends BaseCommand {
 
         if (playerName.equals("*")){
             DataManager.clearData(checkType);
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Removed all data and history: " + c3 + checkType);
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "移除玩家历史: " + c3 + checkType);
             return true;
         }
 
@@ -104,10 +104,10 @@ public class RemovePlayerCommand extends BaseCommand {
         }
 
         if (somethingFound){
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Issued history and data removal (" + c3 + checkType + c1 +"): " + c3 + playerName + c1);
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "出现问题 (" + c3 + checkType + c1 +"): " + c3 + playerName + c1);
         }
         else
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Nothing found (" + c3 + checkType + c1 +"): " + c3 + playerName + c1 + " (spelled correctly?)");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有发现 (" + c3 + checkType + c1 +"): " + c3 + playerName + c1 + " (拼写错误?)");
         return true;
     }
 

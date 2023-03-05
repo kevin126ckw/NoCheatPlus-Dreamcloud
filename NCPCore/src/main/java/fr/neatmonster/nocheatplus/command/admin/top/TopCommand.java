@@ -133,15 +133,15 @@ public class TopCommand extends BaseCommand{
             int done = 0;
 
             for (final VLView view : views) {
-                builder.append(c1 + "\n• "+ c1 +"Player with top results: " + c2 + view.name);
+                builder.append(c1 + "\n• "+ c1 +"玩家排行结果: " + c2 + view.name);
                 // sum
-                builder.append(c1 + "\n• " + c1 + "Sum: " + c2 + format.format(view.sumVL) + c1 + " VLs.");
+                builder.append(c1 + "\n• " + c1 + "总计: " + c2 + format.format(view.sumVL) + c1 + " VLs.");
                 // n
-                builder.append(c1 + "\n• " + c1 + "Triggered: " + c2 + view.nVL + c1 + " times.");
+                builder.append(c1 + "\n• " + c1 + "触发: " + c2 + view.nVL + c1 + " 次.");
                 // avg
-                builder.append(c1 + "\n• " + c1 + "Average: " + c2 + format.format(view.sumVL / view.nVL) + c1 + " VL.");
+                builder.append(c1 + "\n• " + c1 + "平均: " + c2 + format.format(view.sumVL / view.nVL) + c1 + " VL.");
                 // max
-                builder.append(c1 + "\n• " + c1 + "Max: " + c2 + format.format(view.maxVL) + c1 + " VL.");
+                builder.append(c1 + "\n• " + c1 + "最大: " + c2 + format.format(view.maxVL) + c1 + " VL.");
     
                 done ++;
                 if (done >= n) {
@@ -168,7 +168,7 @@ public class TopCommand extends BaseCommand{
 
     public TopCommand(JavaPlugin plugin) {
         super(plugin, "top", Permissions.COMMAND_TOP);
-        this.usage = TAG + "Optional: Specify number of entries to show (once).\nObligatory: Specify check types (multiple possible).\nOptional: Specify what to sort by (multiple possible: -sumvl, -avgvl, -maxvl, -nvl, -name, -time).\nThis is a heavy operation, use with care."; // -check
+        this.usage = TAG + "错误的使用方法."; // -check
     }
 
     @SuppressWarnings("unchecked")
@@ -185,13 +185,13 @@ public class TopCommand extends BaseCommand{
             startIndex = 2;
         } catch (NumberFormatException e) {}
         if (n <= 0) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Setting number of entries to 10");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "设置条数为 10 .");
             n = 1;
         } else if ((sender instanceof Player) && n > 300) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Capping number of entries at 300.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "设置上限为 300 .");
             n = 300;
         } else if  (n > 10000) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Capping number of entries at 10000.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "设置上限为 10000 .");
             n = 10000;
         }
         
