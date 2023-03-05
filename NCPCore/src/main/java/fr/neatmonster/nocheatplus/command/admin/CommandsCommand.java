@@ -34,8 +34,6 @@ public class CommandsCommand extends BaseCommand {
             ChatColor.GOLD + "" + ChatColor.BOLD + "可用命令:",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus log" + ChatColor.GRAY + " - 显示计数器汇总.",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus reset" + ChatColor.GRAY + " - 重置计数器.",
-            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus denylist" + ChatColor.GRAY + "- 列出被禁止登录的玩家.",
-            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus allowlogin (玩家)" + ChatColor.GRAY + " - 允许玩家登录.",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exemptions (玩家)" + ChatColor.GRAY + " - 列出绕过作弊的玩家.",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exempt (玩家) (检测类型)" + ChatColor.GRAY + " - 使玩家绕过检测(*代表全部). ",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus unexempt (玩家) (检测类型)" + ChatColor.GRAY + " - 取消玩家的检测绕过",

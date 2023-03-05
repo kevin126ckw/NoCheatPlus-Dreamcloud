@@ -55,7 +55,7 @@ public class RemovePlayerCommand extends BaseCommand {
         }
 
         if (args.length < 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家来移除.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家.");
             return true;
         }
         else if (args.length > 3) {

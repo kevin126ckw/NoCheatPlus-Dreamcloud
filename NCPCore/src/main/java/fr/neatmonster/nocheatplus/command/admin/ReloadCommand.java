@@ -65,7 +65,7 @@ public class ReloadCommand extends BaseCommand {
     private void handleReloadCommand(final CommandSender sender) {
         final LogManager logManager = NCPAPIProvider.getNoCheatPlusAPI().getLogManager();
         if (!sender.equals(Bukkit.getConsoleSender())) {
-            sender.sendMessage(TAG + "正在重载配置文件...");
+            sender.sendMessage(ChatColor.GREEN + "正在重载配置文件...");
         }
         logManager.info(Streams.INIT, "正在重载配置文件...");
 
@@ -96,7 +96,7 @@ public class ReloadCommand extends BaseCommand {
 
         // Log reloading done.
         if (!sender.equals(Bukkit.getConsoleSender())) {
-            sender.sendMessage(TAG + "配置文件已重载.");
+            sender.sendMessage(ChatColor.GREEN + "配置文件已重载.");
         }
         logManager.info(Streams.INIT, "配置文件已重载.");
         logManager.info(Streams.DEFAULT_FILE, StringUtil.join(VersionCommand.getVersionInfo(), "\n")); // Queued (!).
