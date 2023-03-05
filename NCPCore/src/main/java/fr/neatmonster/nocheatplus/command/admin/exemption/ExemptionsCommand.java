@@ -79,11 +79,11 @@ public class ExemptionsCommand extends BaseCommand {
             }
         }
         if (entries.isEmpty()) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有 " + c3 +""+ playerName + c1 + " 可用的绕过选项.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有 " + c3 +""+ playerName + c1 + " 绕过的检测项目.");
         }
         else {
             // TODO: Compress entries ?
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "玩家 " + c3 +""+  playerName + c1 + "绕过的检测项目: " + c3 +""+ StringUtil.join(entries, ", "));
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "玩家 " + c3 +""+  playerName + c1 + " 绕过的检测项目: " + c3 +""+ StringUtil.join(entries, ", "));
         }
         return true;
     }

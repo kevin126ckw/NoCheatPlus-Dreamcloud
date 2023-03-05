@@ -74,7 +74,7 @@ public class InfoCommand extends BaseCommand {
     	final ViolationHistory history = ViolationHistory.getHistory(playerName, false);
     	final boolean known = player != null || history != null;
     	if (history == null){
-    		sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有关于" + cR + playerName + cG + "的记录 " + ( known? "" : "(检查一下拼写?)") + ".");
+    		sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有关于" + " " + cR + playerName + cG + " " + "的记录" + ( known? "" : "(检查一下拼写?)") + ".");
     		return;
     	}
     	

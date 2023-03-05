@@ -59,7 +59,7 @@ public class ExemptCommand extends BaseCommand {
             return true;
         }
         else if (args.length > 3) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "用法: /ncp exempt (玩家) (检测类型).");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "用法: /nocheatplus exempt (玩家) (检测类型).");
             return true;
         }
         String playerName = args[1];

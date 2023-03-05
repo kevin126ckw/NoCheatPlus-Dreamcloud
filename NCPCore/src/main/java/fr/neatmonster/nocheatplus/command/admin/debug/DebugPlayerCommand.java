@@ -75,7 +75,7 @@ public class DebugPlayerCommand extends BaseCommand {
 
     public DebugPlayerCommand(JavaPlugin plugin) {
         super(plugin, "player", null);
-        usage = TAG + "/ncp debug player (playername/UUID) (yes|no|default)[:CheckType[:Check]]";
+        usage = TAG + "/nocheatplus debug player (playername/UUID) (yes|no|default)[:CheckType[:Check]]";
     }
 
     @Override
@@ -113,7 +113,7 @@ public class DebugPlayerCommand extends BaseCommand {
         }
 
         if (args.length <= 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Bad setup. Command usage: /ncp debug player (玩家) yes/no:(检测类型).");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "用法: /nocheatplus debug player (玩家) yes/no:(检测类型).");
             return true;
         }
         // TODO: Wild cards (all players)?
@@ -130,7 +130,7 @@ public class DebugPlayerCommand extends BaseCommand {
             else {
                 UUID id = IdUtil.UUIDFromStringSafe(input);
                 if (id == null) {
-                    sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Bad name or UUID: " + c3 + input);
+                    sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "错误的名字(UUID): " + c3 + input);
                     return true;
                 }
                 else {
@@ -138,7 +138,7 @@ public class DebugPlayerCommand extends BaseCommand {
                 }
             }
             if (player == null) {
-                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Not online: " + c3 + input);
+                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "不在线: " + c3 + input);
                 return true;
             }
         }
@@ -148,7 +148,7 @@ public class DebugPlayerCommand extends BaseCommand {
             String input = args[3];
             entry = DebugEntry.parseEntry(input);
             if (entry == null) {
-                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "Bad setup: " + c3 + input);
+                sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "错误: " + c3 + input);
                 // Can't continue.
                 return true;
             }
@@ -172,7 +172,7 @@ public class DebugPlayerCommand extends BaseCommand {
                 data.overrideDebug(checkType, entry.active, OverrideType.CUSTOM, true);
             }
         }
-        sender.sendMessage(TAG + "Set debug: " +c3+ entry.active +c1+ " for player " + c3 + player.getName() +c1+ " for checks: " +c3+ StringUtil.join(checkTypes, ","));
+        sender.sendMessage(TAG + "玩家 " + c3 + player.getName()+ " 的调试状态: " +c3+ entry.active  +c1+ ". 检测项目: " +c3+ StringUtil.join(checkTypes, ","));
         return true;
     }
 

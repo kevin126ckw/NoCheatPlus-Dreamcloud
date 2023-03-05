@@ -1089,8 +1089,6 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
 
         // Set StaticLog to more efficient output.
         StaticLog.setStreamID(Streams.STATUS);
-        // Tell the server administrator that we finished loading NoCheatPlus now.
-        logManager.info(Streams.INIT, "Version " + getDescription().getVersion() + " is enabled.");
     }
 
     /**
@@ -1100,7 +1098,7 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
      */
     private void logOtherNotes(ConfigFile config) {
         if (ServerVersion.compareMinecraftVersion("1.9") >= 0) {
-            logManager.info(Streams.INIT, "Force disable FastHeal, FastConsume, PacketFrequency and InstantBow on Minecraft 1.9 and later.");
+            logManager.info(Streams.INIT, "强制禁用 FastHeal, FastConsume, PacketFrequency, InstantBow.");
         }
     }
 
@@ -1108,7 +1106,7 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
      * Actions to be done after enable of  all plugins. This aims at reloading mainly.
      */
     private void postEnable(final Player[] onlinePlayers) {
-        logManager.info(Streams.INIT, "Post-enable running...");
+        logManager.info(Streams.INIT, "预处理运行中...");
         // Update permission registry internals for permissions preferred to be updated.
         // (By now checks should have noted what they want.)
         permissionRegistry.arrangePreferKeepUpdated();
@@ -1120,7 +1118,7 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
                 setupCommandProtection();
             }
         } catch (Throwable t) {
-            logManager.severe(Streams.INIT, "Failed to apply command protection: " + t.getClass().getSimpleName());
+            logManager.severe(Streams.INIT, "无法进行指令保护: " + t.getClass().getSimpleName());
             logManager.severe(Streams.INIT, t);
         }
         // TODO: This should be a registered handler.
@@ -1131,10 +1129,10 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
             }
         }
         if (onlinePlayers.length > 0) {
-            logManager.info(Streams.INIT, "Updated data for " + onlinePlayers.length + " players (post-enable).");
+            logManager.info(Streams.INIT, "更新 " + onlinePlayers.length + " 个玩家.");
         }
         // Finished.
-        logManager.info(Streams.INIT, "Post-enable finished.");
+        logManager.info(Streams.INIT, "预处理完成.");
         // Log version to file (queued).
         logManager.info(Streams.DEFAULT_FILE, StringUtil.join(VersionCommand.getVersionInfo(), "\n"));
     }
@@ -1246,7 +1244,7 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
         // TODO: Summary event or listener call-back (possibly in another place.).
 
         // Log.
-        logManager.info(Streams.INIT, "McAccess set to: " + mcAccess.getMCVersion() + " / " + mcAccess.getServerVersionTag());
+        logManager.info(Streams.INIT, "客户端兼容版本: " + mcAccess.getMCVersion() + " / " + mcAccess.getServerVersionTag());
 
         return mcAccess;
     }

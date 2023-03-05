@@ -59,7 +59,7 @@ public class RemovePlayerCommand extends BaseCommand {
             return true;
         }
         else if (args.length > 3) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "用法: /ncp removeplayer (玩家) (检测类型).");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "用法: /nocheatplus removeplayer (玩家) (检测类型).");
             return true;
         }
         String playerName = args[1];
@@ -104,10 +104,10 @@ public class RemovePlayerCommand extends BaseCommand {
         }
 
         if (somethingFound){
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "出现问题 (" + c3 + checkType + c1 +"): " + c3 + playerName + c1);
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有关于玩家 " + c3 + playerName + c1 + " 对于类型 " + c3 + checkType + c1+" 的数据.");
         }
         else
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有发现 (" + c3 + checkType + c1 +"): " + c3 + playerName + c1 + " (拼写错误?)");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "没有关于玩家 " + c3 + playerName + c1 + " 对于类型 " + c3 + checkType + c1+" 的数据(拼写错误?).");
         return true;
     }
 

@@ -34,37 +34,25 @@ public class CommandsCommand extends BaseCommand {
 
     final String[] moreCommands = new String[]{
             // TODO: Mmmmh, spaghetti.
-            ChatColor.GOLD +""+ ChatColor.BOLD + "可用命令:",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC + "/<command> log counters"+ChatColor.GRAY+" - 显示计数器汇总.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> reset counters" +ChatColor.GRAY+ " - 重置计数器.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> debug player (玩家) yes/no:(检测类型)"+ChatColor.GRAY+" - 开始一个检测类型的debug.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> denylist"+ChatColor.GRAY+"- 列出被禁止登录的玩家.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> allowlogin (玩家)"+ChatColor.GRAY+" - 允许玩家登录.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> exemptions (玩家)"+ChatColor.GRAY+" - 列出绕过作弊的玩家.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> exempt (玩家) (检测类型)"+ChatColor.GRAY+" - 让玩家绕过检测. （*代表全部）.",
-            ChatColor.GRAY +""+ ChatColor.BOLD +"• "+ChatColor.RED +""+ ChatColor.ITALIC +"/<command> unexempt (玩家) (检测类型)"+ChatColor.GRAY+" - 取消玩家的检测绕过",
+            ChatColor.GOLD + "" + ChatColor.BOLD + "可用命令:",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus log" + ChatColor.GRAY + " - 显示计数器汇总.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus reset" + ChatColor.GRAY + " - 重置计数器.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus debug player (玩家) yes/no:(检测类型)" + ChatColor.GRAY + " - 开始一个检测类型的debug.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus denylist" + ChatColor.GRAY + "- 列出被禁止登录的玩家.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus> allowlogin (玩家)" + ChatColor.GRAY + " - 允许玩家登录.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exemptions (玩家)" + ChatColor.GRAY + " - 列出绕过作弊的玩家.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exempt (玩家) (检测类型)" + ChatColor.GRAY + " - 让玩家绕过检测. （*代表全部）.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus unexempt (玩家) (检测类型)" + ChatColor.GRAY + " - 取消玩家的检测绕过",
     };
-    
-    final String allCommands;
+
 
     public CommandsCommand(JavaPlugin plugin) {
         super(plugin, "commands", Permissions.COMMAND_COMMANDS, new String[]{"cmds"});
-        for (int i = 0; i < moreCommands.length; i++){
-            moreCommands[i] = moreCommands[i].replace("<command>", "ncp");
-        }
-        String all = TAG + ChatColor.GOLD + "所有命令:\n";
-        Command cmd = plugin.getCommand("nocheatplus");
-        if (cmd != null){
-            all += cmd.getUsage().replace("<command>", "nocheatplus");
-        }
-        all += StringUtil.join(Arrays.asList(moreCommands), "\n");
-        allCommands = all;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        sender.sendMessage(allCommands);
+        sender.sendMessage(moreCommands);
         return true;
     }
-
 }

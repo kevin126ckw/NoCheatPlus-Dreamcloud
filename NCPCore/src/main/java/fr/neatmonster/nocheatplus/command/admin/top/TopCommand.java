@@ -83,7 +83,7 @@ public class TopCommand extends BaseCommand{
                 }
             }
             if (views == null) {
-                sender.sendMessage(TAG + "No history to process.");
+                sender.sendMessage(TAG + "没有历史记录.");
             } else {
                 // Start sorting and result processing asynchronously.
                 Bukkit.getScheduler().runTaskAsynchronously(plugin, 

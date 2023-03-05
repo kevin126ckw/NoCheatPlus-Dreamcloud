@@ -157,7 +157,7 @@ public class DefaultComponentFactory {
             NCPAPIProvider.getNoCheatPlusAPI().addFeatureTags("checks", Arrays.asList(FastConsume.class.getSimpleName()));
         }
         catch (Throwable t){
-            StaticLog.logInfo("Inventory checks: FastConsume is not available.");
+            StaticLog.logInfo("物品栏检测: 快速食用检测项目不可用.");
         }
 
         // Check: inventory.gutenberg.
@@ -166,7 +166,7 @@ public class DefaultComponentFactory {
             available.add(new Gutenberg());
             NCPAPIProvider.getNoCheatPlusAPI().addFeatureTags("checks", Arrays.asList(Gutenberg.class.getSimpleName()));
         } catch (Throwable t) {
-            StaticLog.logInfo("Inventory checks: Gutenberg is not available.");
+            StaticLog.logInfo("物品栏检测: 书页检测项目不可用.");
         }
 
         // Hot fix: falling block end portal.

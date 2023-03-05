@@ -92,7 +92,7 @@ public class InspectCommand extends BaseCommand {
 
         // More spaghetti.
         // TODO: Later through ViaVersion it might be useful to also add the client version.
-        builder.append(TAG + c1 + "Status information for player: " + c3 + player.getName());
+        builder.append(TAG + c1 + "关于玩家 " + c3 + player.getName() + c1+ " 的状态信息:");
         
         builder.append("\n "+ c1 + "" + c2 + "•" + c1 + cI + (pData.isBedrockPlayer() ? " 是一个基岩版玩家" : " 是一个Java版玩家") + c1 + ".");
 
