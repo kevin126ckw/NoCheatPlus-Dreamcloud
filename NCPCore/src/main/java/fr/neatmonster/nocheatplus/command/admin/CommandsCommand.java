@@ -14,8 +14,6 @@
  */
 package fr.neatmonster.nocheatplus.command.admin;
 
-import java.util.Arrays;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,7 +21,6 @@ import org.bukkit.ChatColor;
 
 import fr.neatmonster.nocheatplus.command.BaseCommand;
 import fr.neatmonster.nocheatplus.permissions.Permissions;
-import fr.neatmonster.nocheatplus.utilities.StringUtil;
 
 /**
  * This command just shows a list of all commands.
@@ -37,11 +34,10 @@ public class CommandsCommand extends BaseCommand {
             ChatColor.GOLD + "" + ChatColor.BOLD + "可用命令:",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus log" + ChatColor.GRAY + " - 显示计数器汇总.",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus reset" + ChatColor.GRAY + " - 重置计数器.",
-            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus debug player (玩家) yes/no:(检测类型)" + ChatColor.GRAY + " - 开始一个检测类型的debug.",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus denylist" + ChatColor.GRAY + "- 列出被禁止登录的玩家.",
-            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus> allowlogin (玩家)" + ChatColor.GRAY + " - 允许玩家登录.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus allowlogin (玩家)" + ChatColor.GRAY + " - 允许玩家登录.",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exemptions (玩家)" + ChatColor.GRAY + " - 列出绕过作弊的玩家.",
-            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exempt (玩家) (检测类型)" + ChatColor.GRAY + " - 让玩家绕过检测. （*代表全部）.",
+            ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus exempt (玩家) (检测类型)" + ChatColor.GRAY + " - 使玩家绕过检测(*代表全部). ",
             ChatColor.GRAY + "" + ChatColor.BOLD + "• " + ChatColor.RED + "" + ChatColor.ITALIC + "/nocheatplus unexempt (玩家) (检测类型)" + ChatColor.GRAY + " - 取消玩家的检测绕过",
     };
 

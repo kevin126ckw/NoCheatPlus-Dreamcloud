@@ -55,7 +55,7 @@ public class ExemptCommand extends BaseCommand {
 
         // TODO: Reduce copy and paste by introducing some super class.
         if (args.length < 2) {
-            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家 to exempt.");
+            sender.sendMessage((sender instanceof Player ? TAG : CTAG) + "请指定一个玩家.");
             return true;
         }
         else if (args.length > 3) {
