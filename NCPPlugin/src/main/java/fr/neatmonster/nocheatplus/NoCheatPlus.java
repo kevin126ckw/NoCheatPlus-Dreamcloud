@@ -790,8 +790,6 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
         if (verbose) {
             Bukkit.getLogger().info("[NoCheatPlus] All cleanup done."); // Bukkit logger.
         }
-        final PluginDescriptionFile pdfFile = getDescription();
-        Bukkit.getLogger().info("[NoCheatPlus] Version " + pdfFile.getVersion() + " is disabled."); // Bukkit logger.
     }
 
     /**
