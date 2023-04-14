@@ -248,7 +248,7 @@ public class BridgeHealth {
      */
     public static double getHealth(final LivingEntity entity) {
         try{
-            return entity.getHealth();
+            return (double)Math.round(entity.getHealth()*100)/100;
         }
         catch(IncompatibleClassChangeError e) {
             return getDoubleOrInt(entity, "getHealth", e);

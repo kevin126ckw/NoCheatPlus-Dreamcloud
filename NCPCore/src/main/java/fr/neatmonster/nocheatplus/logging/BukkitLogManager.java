@@ -110,10 +110,6 @@ public class BukkitLogManager extends AbstractLogManager implements INotifyReloa
             createStringStream(streamID);
         }
 
-        // Default prefixes.
-        final String prefixIngame = ColorUtil.replaceColors(config.getString(ConfPaths.LOGGING_BACKEND_INGAMECHAT_PREFIX));
-        final String prefixFile = config.getString(ConfPaths.LOGGING_BACKEND_FILE_PREFIX);
-
         // Variables for temporary use.
         LoggerID tempID;
 
@@ -140,7 +136,7 @@ public class BukkitLogManager extends AbstractLogManager implements INotifyReloa
             @Override
             public void log(Level level, String content) {
                 // Ignore level for now.
-                NCPAPIProvider.getNoCheatPlusAPI().sendAdminNotifyMessage(prefixIngame == null ? content : (prefixIngame + content));
+                NCPAPIProvider.getNoCheatPlusAPI().sendAdminNotifyMessage(content);
             }
 
         }, new LogOptions(Streams.NOTIFY_INGAME.name, CallContext.PRIMARY_THREAD_DIRECT));
@@ -153,7 +149,7 @@ public class BukkitLogManager extends AbstractLogManager implements INotifyReloa
         String fileName = config.getString(ConfPaths.LOGGING_BACKEND_FILE_FILENAME).trim();
         ContentLogger<String> defaultFileLogger = null;
         if (!fileName.isEmpty() && !fileName.equalsIgnoreCase("none")) {
-            defaultFileLogger = newFileLogger(fileName, plugin.getDataFolder(), prefixFile);
+            defaultFileLogger = newFileLogger(fileName, plugin.getDataFolder());
         }
 
         ContentLogger<String> traceFileLogger = null;
@@ -190,18 +186,16 @@ public class BukkitLogManager extends AbstractLogManager implements INotifyReloa
      * @param defaultDir
      *            This is used as a base, if fileName represents a relative
      *            path.
-     * @param prefix
-     *            A prefix to use for each message (can be null).
      * @return
      */
-    protected ContentLogger<String> newFileLogger(String fileName, File defaultDir, String prefix) {
+    protected ContentLogger<String> newFileLogger(String fileName, File defaultDir) {
         File file = new File(fileName);
         if (!file.isAbsolute()) {
             file = new File(defaultDir, file.getPath());
         }
         // TODO: Sanity check file+extensions and fall-back if not valid [make an auxiliary method doing all this at once]!
         try {
-            FileLoggerAdapter logger = new FileLoggerAdapter(file, prefix); // TODO: Method to get-or-create these (store logger by canonical abs paths).
+            FileLoggerAdapter logger = new FileLoggerAdapter(file); // TODO: Method to get-or-create these (store logger by canonical abs paths).
             if (logger.isInoperable()) {
                 // TODO: Might want to log this?
                 logger.detachLogger();

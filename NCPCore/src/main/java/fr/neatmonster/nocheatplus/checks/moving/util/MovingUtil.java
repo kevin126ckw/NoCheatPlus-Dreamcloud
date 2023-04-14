@@ -207,7 +207,7 @@ public class MovingUtil {
     /**
      * Check lift-off (CB: on ground is done wrongly, inWater probably is
      * correct, web is not checked).
-     * 
+     *
      * @param fromLocation
      * @param data
      * @return
@@ -315,13 +315,6 @@ public class MovingUtil {
         }
         pLoc.cleanup();
         if (!restored) {
-            // TODO: reset the bounding box of the player ?
-            if (cc.tempKickIllegal) {
-                NCPAPIProvider.getNoCheatPlusAPI().denyLogin(player.getName(), 24L * 60L * 60L * 1000L);
-                StaticLog.logSevere("[NoCheatPlus] could not restore location for " + player.getName() + ", kicking them and deny login for 24 hours");
-            } else {
-                StaticLog.logSevere("[NoCheatPlus] could not restore location for " + player.getName() + ", kicking them.");
-            }
             CheckUtils.kickIllegalMove(player, cc);
         }
     }

@@ -28,7 +28,7 @@ public class Permissions {
     private static int id = 1;
     private static final Map<String, RegisteredPermission> permissions = new LinkedHashMap<String, RegisteredPermission>();
 
-    private static final RegisteredPermission add(String stringRepresentation) {
+    private static RegisteredPermission add(String stringRepresentation) {
         // TODO: Other concept / lock (?) once the plugin has fetched all on load.
         RegisteredPermission permission = new RegisteredPermission(id, stringRepresentation);
         if (permissions.containsKey(permission.getLowerCaseStringRepresentation())) {
@@ -46,11 +46,6 @@ public class Permissions {
     // Access to all commands and debug info.
     private static final String ADMINISTRATION               = NOCHEATPLUS + ".admin";
     public static final RegisteredPermission  ADMINISTRATION_DEBUG         = add(ADMINISTRATION + ".debug");
-
-    // Bypasses held extra from command permissions.
-    private static final String BYPASS                       = NOCHEATPLUS + ".bypass";
-    public static final RegisteredPermission BYPASS_DENY_LOGIN            = add(BYPASS + "denylogin");
-
     // Bypass command filter.
     private static final String FILTER                       = NOCHEATPLUS + ".filter";
     public static final RegisteredPermission  FILTER_COMMAND               = add(FILTER + ".command");
@@ -62,7 +57,6 @@ public class Permissions {
     // Command permissions.
     public static final RegisteredPermission  COMMAND                      = add(NOCHEATPLUS + ".command");
     public static final RegisteredPermission  COMMAND_COMMANDS             = add(COMMAND + ".commands");
-    public static final RegisteredPermission  COMMAND_DEBUG                = add(COMMAND + ".debug");
     public static final RegisteredPermission  COMMAND_EXEMPT               = add(COMMAND + ".exempt");
     public static final RegisteredPermission  COMMAND_EXEMPT_SELF          = add(COMMAND_EXEMPT + ".self");
     public static final RegisteredPermission  COMMAND_EXEMPTIONS           = add(COMMAND + ".exemptions");
@@ -79,16 +73,6 @@ public class Permissions {
     public static final RegisteredPermission  COMMAND_UNEXEMPT             = add(COMMAND + ".unexempt");
     public static final RegisteredPermission  COMMAND_UNEXEMPT_SELF        = add(COMMAND_UNEXEMPT + ".self");
     public static final RegisteredPermission  COMMAND_VERSION              = add(COMMAND + ".version");
-
-    // Auxiliary Command permissions.
-    public static final RegisteredPermission  COMMAND_ALLOWLOGIN           = add(COMMAND + ".allowlogin");
-    public static final RegisteredPermission  COMMAND_BAN                  = add(COMMAND + ".ban");
-    public static final RegisteredPermission  COMMAND_DELAY                = add(COMMAND + ".delay");
-    public static final RegisteredPermission  COMMAND_DENYLOGIN            = add(COMMAND + ".denylogin");
-    public static final RegisteredPermission  COMMAND_KICK                 = add(COMMAND + ".kick");
-    public static final RegisteredPermission  COMMAND_KICKLIST             = add(COMMAND + ".kicklist");
-    public static final RegisteredPermission  COMMAND_TELL                 = add(COMMAND + ".tell");
-    public static final RegisteredPermission  COMMAND_STOPWATCH            = add(COMMAND + ".stopwatch");
 
     // Permissions for the individual checks.
     public static final RegisteredPermission  CHECKS                       = add(NOCHEATPLUS + ".checks");
@@ -174,7 +158,6 @@ public class Permissions {
     public static final RegisteredPermission  MOVING_SURVIVALFLY_BLOCKING  = add(MOVING_SURVIVALFLY + ".blocking");
     public static final RegisteredPermission  MOVING_SURVIVALFLY_SNEAKING  = add(MOVING_SURVIVALFLY + ".sneaking");
     public static final RegisteredPermission  MOVING_SURVIVALFLY_SPEEDING  = add(MOVING_SURVIVALFLY + ".speeding");
-    public static final RegisteredPermission  MOVING_SURVIVALFLY_SPRINTING = add(MOVING_SURVIVALFLY + ".sprinting");
 	public static final RegisteredPermission  MOVING_SURVIVALFLY_WATERWALK = add(MOVING_SURVIVALFLY + ".waterwalk");
     public static final RegisteredPermission  MOVING_SURVIVALFLY_STEP      = add(MOVING_SURVIVALFLY + ".step");
     public static final RegisteredPermission  MOVING_VEHICLE               = add(MOVING + ".vehicle");
@@ -190,7 +173,7 @@ public class Permissions {
      * @return
      */
     public static List<RegisteredPermission> getPermissions() {
-        return new ArrayList<RegisteredPermission>(permissions.values());
+        return new ArrayList<>(permissions.values());
     }
 
 }

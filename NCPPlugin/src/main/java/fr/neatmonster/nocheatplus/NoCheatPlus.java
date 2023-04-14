@@ -304,93 +304,6 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
         return ConfigManager.getConfigFile().getBoolean(ConfPaths.LOGGING_EXTENDED_STATUS) ? Streams.STATUS : Streams.DEFAULT_FILE;
     }
 
-    /**
-     * Remove expired entries.
-     * 
-     * @param playerName
-     * @return If playerName is not null and the player is denied login after
-     *         expiration checks, true is returned. Otherwise false is returned.
-     */
-    private boolean checkDenyLoginsNames(String playerName) {
-        final long ts = System.currentTimeMillis();
-        final List<String> rem = new LinkedList<String>();
-        boolean res = false;
-        synchronized (denyLoginNames) {
-            for (final Entry<String, Long> entry : denyLoginNames.entrySet()) {
-                if (entry.getValue().longValue() < ts) {
-                    rem.add(entry.getKey());
-                }
-            }
-            for (final String name : rem) {
-                denyLoginNames.remove(name);
-            }
-            if (playerName != null) {
-                res = isLoginDenied(playerName);
-            }
-        }
-        return res;
-    }
-
-    @Override
-    public boolean allowLogin(String playerName) {
-        playerName = playerName.trim().toLowerCase();
-        final Long time = denyLoginNames.remove(playerName);
-        if (time == null) return false;
-        return System.currentTimeMillis() <= time;
-    }
-
-    @Override
-    public int allowLoginAll() {
-        int denied = 0;
-        final long now = System.currentTimeMillis();
-        for (final String playerName : denyLoginNames.keySet()) {
-            final Long time = denyLoginNames.get(playerName);
-            if (time != null && time > now) denied ++;
-        }
-        denyLoginNames.clear();
-        return denied;
-    }
-
-    @Override
-    public void denyLogin(String playerName, long duration) {
-        final long ts = System.currentTimeMillis() + duration;
-        playerName = playerName.trim().toLowerCase();
-        synchronized (denyLoginNames) {
-            final Long oldTs = denyLoginNames.get(playerName);
-            if (oldTs != null && ts < oldTs.longValue()) {
-                return;
-            }
-            denyLoginNames.put(playerName, ts);
-            // TODO: later maybe save these ?
-        }
-        checkDenyLoginsNames(null);
-    }
-
-    @Override
-    public boolean isLoginDenied(String playerName) {
-        return isLoginDenied(playerName, System.currentTimeMillis());
-    }
-
-    @Override
-    public String[] getLoginDeniedPlayers() {
-        checkDenyLoginsNames(null);
-        String[] kicked = new String[denyLoginNames.size()];
-        denyLoginNames.keySet().toArray(kicked);
-        return kicked;
-    }
-
-    @Override
-    public boolean isLoginDenied(String playerName, long time) {
-        playerName = playerName.trim().toLowerCase();
-        final Long oldTs = denyLoginNames.get(playerName);
-        if (oldTs == null) {
-            return false; 
-        }
-        else {
-            return time < oldTs.longValue();
-        }
-    }
-
     @Override
     public int sendAdminNotifyMessage(final String message) {
         // TODO: Does this always work?
@@ -1263,27 +1176,6 @@ public class NoCheatPlus extends JavaPlugin implements NoCheatPlusAPI {
      */
     private Listener getCoreListener() {
         return new NCPListener() {
-            @EventHandler(priority = EventPriority.NORMAL)
-            public void onPlayerLogin(final PlayerLoginEvent event) {
-                // (NORMAL to have chat checks come after this.)
-                if (event.getResult() != Result.ALLOWED) {
-                    return;
-                }
-                final Player player = event.getPlayer();
-                // Check if login is denied (plus expiration check).
-                // TODO: Store by id + HashMapLOW + AsyncPlayerPreLogin.
-                if (checkDenyLoginsNames(player.getName())) {
-                    if (DataManager.getPlayerData(player).hasPermission(Permissions.BYPASS_DENY_LOGIN, player)) {
-                        return;
-                    }
-                    // TODO: Consider using the vanilla temporary ban feature instead (for an alternative?).
-                    // TODO: Display time for which the player is banned.
-                    event.setResult(Result.KICK_OTHER);
-                    // TODO: Some basic/language configuration object, possibly independent of checks.
-                    event.setKickMessage(ColorUtil.replaceColors(ConfigManager.getConfigFile(player.getWorld().getName()).getString(ConfPaths.STRINGS + ".msgtempdenylogin")));
-                }
-            }
-
             @EventHandler(priority = EventPriority.LOWEST) // Do update comment in NoCheatPlusAPI with changing.
             public void onPlayerJoinLowest(final PlayerJoinEvent event) {
                 if (clearExemptionsOnJoin) {

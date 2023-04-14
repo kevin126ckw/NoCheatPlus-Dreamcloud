@@ -149,36 +149,6 @@ public class PluginTests {
         }
 
         @Override
-        public boolean allowLogin(String playerName) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public int allowLoginAll() {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public void denyLogin(String playerName, long duration) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public boolean isLoginDenied(String playerName) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public String[] getLoginDeniedPlayers() {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
-        public boolean isLoginDenied(String playerName, long time) {
-            throw new UnsupportedOperationException();
-        }
-
-        @Override
         public LogManager getLogManager() {
             // TODO: Maybe do implement a dummy log manager (with file?) 
             throw new UnsupportedOperationException();
