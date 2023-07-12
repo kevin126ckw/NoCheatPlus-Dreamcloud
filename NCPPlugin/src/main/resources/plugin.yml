@@ -14,6 +14,7 @@ folia-supported: true
 softdepend:
 - ProtocolLib
 - Carbon
+- floodgate
 
 commands:
     nocheatplus:

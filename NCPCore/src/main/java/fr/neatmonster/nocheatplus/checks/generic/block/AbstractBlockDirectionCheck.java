@@ -141,6 +141,7 @@ public abstract class AbstractBlockDirectionCheck<D extends ICheckData, C extend
             final D data, final C cc, final IPlayerData pData) {
 
         boolean cancel = false;
+        if (pData.isBedrockPlayer()) return cancel;
         // How far "off" is the player with their aim.
         final double x = loc.getX();
         final double y = loc.getY() + eyeHeight;

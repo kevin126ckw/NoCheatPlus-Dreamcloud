@@ -14,6 +14,7 @@
  */
 package fr.neatmonster.nocheatplus.checks.blockplace;
 
+import fr.neatmonster.nocheatplus.players.DataManager;
 import org.bukkit.entity.Player;
 
 import fr.neatmonster.nocheatplus.checks.Check;
@@ -43,7 +44,7 @@ public class NoSwing extends Check {
     public boolean check(final Player player, final BlockPlaceData data, final BlockPlaceConfig cc) {
 
         boolean cancel = false;
-
+        if (DataManager.getPlayerData(player).isBedrockPlayer()) return cancel;
         // Did they swing their arm before?
         if (++data.noSwingCount <= 1) {
             // Reward with lowering of the violation level.

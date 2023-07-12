@@ -43,6 +43,7 @@ public class NoSwing extends Check {
             final IPlayerData pData) {
 
         boolean cancel = false;
+        if (pData.isBedrockPlayer()) return cancel;
 
         // Did they swing their arm before?
         if (++data.noSwingCount <= 1) {

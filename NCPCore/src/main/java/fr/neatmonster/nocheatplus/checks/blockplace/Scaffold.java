@@ -68,7 +68,7 @@ public class Scaffold extends Check {
                          final double yDistance, final int jumpPhase) {
         
         boolean cancel = false;
-
+        if (pData.isBedrockPlayer()) return cancel;
         // Update sneakTime since the player may have unsneaked after the last move.
         if (player.isSneaking()) {
             data.sneakTime = data.currentTick;

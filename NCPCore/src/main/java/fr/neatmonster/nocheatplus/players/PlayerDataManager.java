@@ -93,6 +93,9 @@ import fr.neatmonster.nocheatplus.utilities.ds.corw.DualSet;
 import fr.neatmonster.nocheatplus.utilities.ds.map.HashMapLOW;
 import fr.neatmonster.nocheatplus.worlds.IWorldData;
 import fr.neatmonster.nocheatplus.worlds.WorldDataManager;
+import org.geysermc.floodgate.api.FloodgateApi;
+
+import static org.bukkit.Bukkit.getServer;
 
 /**
  * Player data storage. May contain functionality of the DataManager, which
@@ -109,7 +112,7 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
     /////////////////////
     // Instance
     /////////////////////
-
+    private boolean floodgate;
     private int foundInconsistencies = 0;
 
     /** PlayerData storage. */
@@ -285,7 +288,7 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
             BukkitVersion.init();
         }
         final String version = ServerVersion.getMinecraftVersion();
-        if (GenericVersion.compareVersions(version, "1.8") >= 0 || version.equals("1.7.10") && Bukkit.getServer().getVersion().toLowerCase().indexOf("spigot") != -1) {
+        if (GenericVersion.compareVersions(version, "1.8") >= 0 || version.equals("1.7.10") && getServer().getVersion().toLowerCase().indexOf("spigot") != -1) {
             // Safe to assume Spigot, don't store Player instances.
             playerMap = new PlayerMap(false);
         }
@@ -293,6 +296,7 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
             // Likely an older version without efficient mapping.
             playerMap = new PlayerMap(true);
         }
+        if (getServer().getPluginManager().getPlugin("floodgate") != null) floodgate = true;
         this.permissionRegistry = permissionRegistry; // TODO: World specific.
         this.worldDataManager = worldDataManager;
         // (Call support.) 
@@ -628,6 +632,9 @@ public class PlayerDataManager  implements IPlayerDataManager, ComponentWithName
             final String playerName = pData.getPlayerName();
             if (!playerName.equals(player.getName())) {
                 updatePlayerName(playerId, playerName, pData, "login");
+            }
+            if(floodgate){
+                if (FloodgateApi.getInstance().isFloodgatePlayer(playerId)) pData.setBedrockPlayer(true);
             }
             // Update world.
             pData.updateCurrentWorld(worldDataManager.getWorldData(player.getWorld()));
