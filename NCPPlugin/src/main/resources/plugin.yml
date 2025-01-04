@@ -2,7 +2,7 @@ name: ${project.name}
 version: ${project.version}-Updated-${buildDescription}
 description: ${project.description}
 
-author: NeatMonster
+author: Kevinlels
 authors: [asofold, Evenprime, CaptainObvious0, xaw3ep]
 website: ${project.url}
 dev-url: ${project.url}
@@ -19,22 +19,22 @@ softdepend:
 commands:
     nocheatplus:
         aliases: [ncp]
-        description: NoCheatPlus command(s).
+        description: NoCheatPlus 命令.
         # permissions: nocheatplus.admin.(...)
         usage: |
                §6§l+§7§l§m------------------§6§l+
-               §7§l|§6§l Commands Overview  §7§l |
+               §7§l|§6§l 命令总览  §7§l |
                §6§l+§7§l§m------------------§6§l+
-               §7§l•§c§o /<command> top (entries) (check/s...) (sort by...)§7 - Display the top results of a given check.
-               §7§l•§c§o /<command> info (playername)§7 - Violation summary for a player.
-               §7§l•§c§o /<command> inspect (playername)§7 - Status info for a player.
-               §7§l•§c§o /<command> notify on|off§7 - Toggle in-game notifications on/off.
-               §7§l•§c§o /<command> removeplayer (playername) [(check type)]§7 - Clear a check's data for a given player.
-               §7§l•§c§o /<command> reload§7 - Reload the configuration.
-               §7§l•§c§o /<command> lag§7 - Lag-related info.
-               §7§l•§c§o /<command> version§7 - Display information about both the server and the plugin.
-               §7§l•§c§o /<command> commands§7 - List all commands, including auxiliary ones.
-               §7§l•§c§o /<command> stopwatch (start/stop/distance/return) [distance]§7 - Simple command for measuring time and distances. Useful for testing purposes.
+               §7§l•§c§o /<command> top (entries) (check/s...) (sort by...)§7 - 显示给定检查的顶级结果.
+               §7§l•§c§o /<command> info (playername)§7 - 玩家违规总结.
+               §7§l•§c§o /<command> inspect (playername)§7 - 玩家的状态信息.
+               §7§l•§c§o /<command> notify on|off§7 - 切换游戏内提醒开/关.
+               §7§l•§c§o /<command> removeplayer (playername) [(check type)]§7 - 清除给定玩家的检查数据.
+               §7§l•§c§o /<command> reload§7 - 重新加载配置文件.
+               §7§l•§c§o /<command> lag§7 - 与延迟相关的信息.
+               §7§l•§c§o /<command> version§7 - 显示有关服务器和插件的信息.
+               §7§l•§c§o /<command> commands§7 - 列出所有命令，包括辅助命令.
+               §7§l•§c§o /<command> stopwatch (start/stop/distance/return) [distance]§7 - 用于测量时间和距离的简单命令。适用于测试目的.
 
 permissions:
     # Check silent permissions (no log alerts if present).
@@ -67,8 +67,6 @@ permissions:
     nocheatplus.checks.blockplace.direction.silent:
         default: false
     nocheatplus.checks.blockplace.fastplace.silent:
-        default: false
-    nocheatplus.checks.blockplace.noswing.silent:
         default: false
     nocheatplus.checks.blockbreak.reach.silent:
         default: false
@@ -152,305 +150,305 @@ permissions:
         default: false
     # Check bypass permissions:
     nocheatplus.checks:
-        description: Allow the player to bypass all checks.
+        description: 允许玩家绕过所有检查.
         children:
             nocheatplus.checks.blockbreak:
-                description: Allow the player to bypass all BlockBreak checks.
+                description: 允许玩家绕过所有 BlockBreak 检查.
                 children:
                     nocheatplus.checks.blockbreak.break:
-                        description: Allow the player to break special blocks.
+                        description: 允许玩家破坏特殊方块.
                         children:
                           nocheatplus.checks.blockbreak.break.liquid:
-                            description: Allow players to break liquid.
+                            description: 允许玩家破坏液体.
                     nocheatplus.checks.blockbreak.direction:
-                        description: Allow the player to bypass to Direction check.
+                        description: 允许玩家绕过方向检查.
                     nocheatplus.checks.blockbreak.fastbreak:
-                        description: Allow the player to bypass the FastBreak check.
+                        description: 允许玩家绕过快速破坏检查.
                     nocheatplus.checks.blockbreak.frequency:
-                        description: Allow the player to bypass the Frequency check.
+                        description: 允许玩家绕过频率检查.
                     nocheatplus.checks.blockbreak.noswing:
-                        description: Allow the player to bypass the NoSwing check.
+                        description: 允许玩家绕过无挥动检查.
                     nocheatplus.checks.blockbreak.reach:
-                        description: Allow the player to bypass the Reach check.
+                        description: 允许玩家绕过距离检查.
                     nocheatplus.checks.blockbreak.wrongblock:
-                        description: Allow the player to bypass the WorngBlock check.
+                        description: 允许玩家绕过错误方块检查.
             nocheatplus.checks.blockinteract:
-                description: Allow the player to bypass all BlockInteract checks.
+                description: 允许玩家绕过所有 BlockInteract 检查.
                 children:
                     nocheatplus.checks.blockinteract.direction:
-                        description: Allow the player to bypass to Direction check.
+                        description: 允许玩家绕过方向检查.
                     nocheatplus.checks.blockinteract.reach:
-                        description: Allow the player to bypass the Reach check.
+                        description: 允许玩家绕过距离检查.
                     nocheatplus.checks.blockinteract.speed:
-                        description: Allow the player to bypass the Speed check.
+                        description: 允许玩家绕过速度检查.
                     nocheatplus.checks.blockinteract.visible:
-                        description: Allow the player to bypass the Visible check.
+                        description: 允许玩家绕过可见性检查.
             nocheatplus.checks.blockplace:
-                description: Allow the player to bypass all BlockPlace checks.
+                description: 允许玩家绕过所有 BlockPlace 检查.
                 children:
-                    nocheatplus.checks.blockplace.against:
-                        description: Allow the player to place blocks against other blocks.
-                        children:
-                            nocheatplus.checks.blockplace.against.liquids:
-                                description: Allow the player to place blocks against liquids.
-                            nocheatplus.checks.blockplace.against.air:
-                                description: Allow the player to place blocks against air.
-                    nocheatplus.checks.blockplace.autosign:
-                        description: Allow bypassing the autosign check.
-                    nocheatplus.checks.blockplace.boatsanywhere:
-                        description: Allow the player to place boats on the ground.
-                    nocheatplus.checks.blockplace.direction:
-                        description: Allow the player to bypass to Direction check.
-                    nocheatplus.checks.blockplace.fastplace:
-                        description: Allow the player to bypass the FastPlace check.
-                    nocheatplus.checks.blockplace.noswing:
-                        description: Allow the player to bypass the NoSwing check.
-                    nocheatplus.checks.blockplace.reach:
-                        description: Allow the player to bypass the Reach check.
-                    nocheatplus.checks.blockplace.scaffold:
-                        description: Allow the player to bypass the Scaffold check.
-                    nocheatplus.checks.blockplace.speed:
-                        description: Allow the player to bypass the Speed check.
+                            nocheatplus.checks.blockplace.against:
+                                description: 允许玩家在其他方块上放置方块.
+                                children:
+                                    nocheatplus.checks.blockplace.against.liquids:
+                                        description: 允许玩家在液体上放置方块.
+                                    nocheatplus.checks.blockplace.against.air:
+                                        description: 允许玩家在空气中放置方块.
+                            nocheatplus.checks.blockplace.autosign:
+                                description: 允许绕过自动签名检查.
+                            nocheatplus.checks.blockplace.boatsanywhere:
+                                description: 允许玩家在地面上放置船.
+                            nocheatplus.checks.blockplace.direction:
+                                description: 允许玩家绕过方向检查.
+                            nocheatplus.checks.blockplace.fastplace:
+                                description: 允许玩家绕过快速放置检查.
+                            nocheatplus.checks.blockplace.noswing:
+                                description: 允许玩家绕过无挥动检查.
+                            nocheatplus.checks.blockplace.reach:
+                                description: 允许玩家绕过距离检查.
+                            nocheatplus.checks.blockplace.scaffold:
+                                description: 允许玩家绕过脚手架检查.
+                            nocheatplus.checks.blockplace.speed:
+                                description: 允许玩家绕过速度检查.
             nocheatplus.checks.chat:
-                description: Allow the player to bypass all Chat checks.
+                description: 允许玩家绕过所有聊天检查.
                 children:
                     nocheatplus.checks.chat.captcha:
-                        description: Allow the player to bypass the captcha check (currently the text/commands violation handling would replace it!).
+                        description: 允许玩家绕过验证码检查（目前文本/命令违规处理会替代它!）.
                     nocheatplus.checks.chat.commands:
-                        description: Allow the player to bypass the commands check.
+                        description: 允许玩家绕过命令检查.
                     nocheatplus.checks.chat.logins:
-                        description: Allow the player to bypass the logins check.
+                        description: 允许玩家绕过登录检查.
                     nocheatplus.checks.chat.relog:
-                        description: Allow the player to bypass the relog check.
+                        description: 允许玩家绕过重新登录检查.
                     nocheatplus.checks.chat.text:
-                        description: Allow the player to bypass the text check.
+                        description: 允许玩家绕过文本检查.
             nocheatplus.checks.combined:
-                description: Allow the player to bypass all combined checks.
+                description: 允许玩家绕过所有组合检查.
                 children:
                      nocheatplus.checks.combined.improbable:
-                         description: Allow the player to bypass the Improbable check.
+                         description: 允许玩家绕过不可能检查.
                      nocheatplus.checks.combined.munchhausen:
-                         description: Allow flying with fishing rods! The check is deactivated by default, though.
+                         description: 允许使用鱼竿飞行! 该检查默认是关闭的.
             nocheatplus.checks.fight:
-                description: Allow the player to bypass all Fight checks.
+                description: 允许玩家绕过所有战斗检查.
                 children:
                     nocheatplus.checks.fight.angle:
-                        description: Allow the player to bypass the Angle check.
+                        description: 允许玩家绕过角度检查.
                     nocheatplus.checks.fight.critical:
-                        description: Allow the player to bypass the Critical check.
+                        description: 允许玩家绕过暴击检查.
                     nocheatplus.checks.fight.direction:
-                        description: Allow the player to bypass the Direction check.
+                        description: 允许玩家绕过方向检查.
                     nocheatplus.checks.fight.fastheal:
-                        description: Allow the player to bypass the FastHeal check.
+                        description: 允许玩家绕过快速治疗检查.
                     nocheatplus.checks.fight.godmode:
-                        description: Allow the player to bypass the GodMode check.
-                    nocheatplus.checks.fight.impossiblehit:
-                        description: Allow the player to bypass the ImpossibleHit check.
+                        description: 允许玩家绕过无敌模式检查.
+                    nocheatplus.checks.net.impossiblehit:
+                        description: 允许玩家绕过不可能命中检查.
                     nocheatplus.checks.fight.noswing:
-                        description: Allow the player to bypass the NoSwing check.
+                        description: 允许玩家绕过无挥动检查.
                     nocheatplus.checks.fight.reach:
-                        description: Allow the player to bypass the Reach check.
+                        description: 允许玩家绕过距离检查.
                     nocheatplus.checks.fight.selfhit:
-                        description: Allow the player to bypass the SelfHit check.
+                        description: 允许玩家绕过自击检查.
                     nocheatplus.checks.fight.speed:
-                        description: Allow the player to bypass the Speed check.
+                        description: 允许玩家绕过速度检查.
             nocheatplus.checks.inventory:
-                description: Allow the player to bypass all Inventory checks.
+                description: 允许玩家绕过所有库存检查.
                 children:
                     nocheatplus.checks.inventory.fastclick:
-                        description: Allow the player to bypass the FastClick check.
+                        description: 允许玩家绕过快速点击检查.
                     nocheatplus.checks.inventory.fastconsume:
-                        description: Allow to bypass the FastConsume check.
+                        description: 允许绕过快速消耗检查.
                     nocheatplus.checks.inventory.gutenberg:
-                        description: Allow to bypass the Gutenberg check.
+                        description: 允许绕过古腾堡检查.
                     nocheatplus.checks.inventory.instantbow:
-                        description: Allow the player to bypass the InstantBow check.
+                        description: 允许玩家绕过即时弓检查.
                     nocheatplus.checks.inventory.inventorymove:
-                        description: Allow the player to bypass the InventoryMove check.
+                        description: 允许玩家绕过库存移动检查.
                     nocheatplus.checks.inventory.moreinventory:
-                        description: Allow the player to bypass the MoreInventory check.
+                        description: 允许玩家绕过更多库存检查.
                     nocheatplus.checks.inventory.instanteat:
-                        description: Allow the player to bypass the InstantEat check.
+                        description: 允许玩家绕过即时吃检查.
                     nocheatplus.checks.inventory.items:
-                        description: Allow the player to bypass the items check (illegal enchantments/dupes).
+                        description: 允许玩家绕过物品检查（非法附魔/复制）.
                     nocheatplus.checks.inventory.open:
-                        description: Check for open inventories on special transitions, such as teleportation.
+                        description: 在特殊转换时检查打开的库存，例如传送.
             nocheatplus.checks.moving:
-                description: Allow the player to bypass all Moving checks.
+                description: 允许玩家绕过所有移动检查.
                 children:
                     nocheatplus.checks.moving.creativefly:
-                        description: Allow the player to bypass the CreativeFly check.
+                        description: 允许玩家绕过创造模式飞行检查.
                         children:
                             nocheatplus.checks.moving.survivalfly: true
                     nocheatplus.checks.moving.morepackets:
-                        description: Allow the player to bypass the MorePackets check.
+                        description: 允许玩家绕过更多数据包检查.
                     nocheatplus.checks.moving.morepacketsvehicle:
-                        description: "Legacy permission! Use instead: nocheatplus.checks.moving.vehicle.morepackets"
+                        description: "遗留权限! 请改用: nocheatplus.checks.moving.vehicle.morepackets"
                         children:
                             nocheatplus.checks.moving.vehicle.morepackets: true
                     nocheatplus.checks.moving.nofall:
-                        description: Allow the player to bypass the NoFall check.
+                        description: 允许玩家绕过无坠落检查.
                     nocheatplus.checks.moving.passable:
-                        description: Allow bypassing the Passable check.
+                        description: 允许绕过可通行检查.
                     nocheatplus.checks.moving.survivalfly:
-                        description: Allow the player to bypass the SurvivalFly check.
+                        description: 允许玩家绕过生存模式飞行检查.
                         children:
                             nocheatplus.checks.moving.survivalfly.blocking:
-                                description: Allow the player to move without speed limits and to attack entities while blocking.
+                                description: 允许玩家在阻挡时无速度限制并攻击实体.
                             nocheatplus.checks.moving.survivalfly.sneaking:
-                                description: Allow the player to move without speed limits while sneaking.
+                                description: 允许玩家在潜行时无速度限制.
                             nocheatplus.checks.moving.survivalfly.speeding:
-                                description: Allow the player to move at higher speeds.
+                                description: 允许玩家以更高的速度移动.
                             nocheatplus.checks.moving.survivalfly.sprinting:
-                                description: Allow the player to sprint backwards.
+                                description: 允许玩家向后冲刺.
                             nocheatplus.checks.moving.survivalfly.step:
-                                description: Allow the player to use the 'step' functionality of their client.
+                                description: 允许玩家使用客户端的“步进”功能.
                             nocheatplus.checks.moving.survivalfly.waterwalk:
-                                description: Allow the player to use the 'waterwalk' functionality of their client.
+                                description: 允许玩家使用客户端的“水上行走”功能.
                     nocheatplus.checks.moving.vehicle:
-                        description: Allow bypassing all checks for players moving as passengers of vehicles/other.
+                        description: 允许绕过所有载具/其他乘客移动检查.
                         children:
                             nocheatplus.checks.moving.vehicle.morepackets:
-                                description: Allow bypassing the morepackets check for vehicles.
+                                description: 允许绕过载具的更多数据包检查.
                             nocheatplus.checks.moving.vehicle.envelope:
-                                description: Allow bypassing the moving envelope check for vehicles.
+                                description: 允许绕过载具的移动范围检查.
             nocheatplus.checks.net:
-              description: Allow a player to bypass the net (packet) checks.
+              description: 允许玩家绕过网络（数据包）检查.
               children:
                 nocheatplus.checks.net.attackfrequency:
-                  description: Bypass the AttackFrequency check (attack speed).
+                  description: 绕过攻击频率检查（攻击速度）.
                 nocheatplus.checks.net.flyingfrequency:
-                  description: Bypass the FlyingFrequency check (flying packet spam).
+                  description: 绕过飞行频率检查（飞行数据包垃圾邮件）.
                 nocheatplus.checks.net.keepalivefrequency:
-                  description: Bypass the KeepAliveFrequency check (keep alive packet spam).
+                  description: 绕过保持连接频率检查（保持连接数据包垃圾邮件）.
                 nocheatplus.checks.net.moving:
-                  description: Allow the player to bypass the Moving check (flying packet checks).
+                  description: 允许玩家绕过移动检查（飞行数据包检查）.
                 nocheatplus.checks.net.packetfrequency:
-                  description: Bypass the PacketFrequency check (overall packet spam).
+                  description: 绕过数据包频率检查（整体数据包垃圾邮件）.
                 nocheatplus.checks.net.wrongturn:
-                  description: Allow the player to bypass the WrongTurn check.
+                  description: 允许玩家绕过错误转弯检查.
                   
     nocheatplus.notify:
-        description: Receive notifications about violations in-game.
+        description: 在游戏中接收违规通知.
     
     nocheatplus.filter.command:
-        description: Allows use of all commands protected by the command protection, like the ncp root command. Does not give functionality but allow seeing usage and tab-completion of the command. In future there can be many children not listed in this config.
+        description: 允许使用所有受命令保护的命令，如 ncp 根命令. 不提供功能，但允许查看命令的使用和补全. 未来可能会有许多未在此配置中列出的子权限.
         children:
             nocheatplus.filter.command.nocheatplus:
-                description: Filter permission to allow using sub commands of the /nocheatplus command. This permission should not be necessary to ever be given to any player unless the permission plugin is incompatible with certain aspects of super-perms.
+                description: 过滤权限，允许使用 /nocheatplus 命令的子命令. 除非权限插件与超权限的某些方面不兼容，否则不应将此权限授予任何玩家.
     
     # Command permissions:
     nocheatplus.command:
-        description: "All command permissions, do not give lightly - if in doubt use shortcut permissions for moderators (nocheatplus.shortcut.monitor|safeadmin ...)."
+        description: "所有命令权限，不要轻易授予 - 如果不确定，请使用为管理员设计的快捷权限（nocheatplus.shortcut.monitor|safeadmin ...）."
         children:
             nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.notify:
-                description: Allow toggling notifications.
+                description: 允许切换通知.
                 children:
                     nocheatplus.notify: true
             nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.reload:
-                description: Allow the player to reload NoCheatPlus configuration.
+                description: 允许玩家重新加载 NoCheatPlus 配置.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.top:
-                description: Allow to search violation history for top violations.
+                description: 允许搜索顶级违规的历史记录.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.info:
-                description: Allow to see violation info about a player.
+                description: 允许查看玩家的违规信息.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.inspect:
-                description: Allow to see detailed information about online players.
+                description: 允许查看在线玩家的详细信息.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.exemptions:
-                description: Allow to see exemptions for a player.
+                description: 允许查看玩家的豁免信息.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.exempt:
-                description: Allow to add exemptions for a player.
+                description: 允许为玩家添加豁免.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.unexempt:
-                description: Allow to remove exemptions from  a player.
+                description: 允许移除玩家的豁免.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.ban:
-                description: Allow use of the ncp ban command.
+                description: 允许使用 ncp 禁言命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.kick:
-                description: Allow use of the ncp kick command.
+                description: 允许使用 ncp 踢出命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.denylist:
-                description: Allow use of the ncp denylist command (view players who are denied to login right now).
+                description: 允许使用 ncp 拒绝列表命令（查看当前被拒绝登录的玩家）.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.lag:
-                description: Allow use of the ncp lag command.
+                description: 允许使用 ncp 延迟命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.tell:
-                description: Allow use of the ncp tell command.
+                description: 允许使用 ncp 告诉命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.delay:
-                description: Allow use of the ncp delay command.
+                description: 允许使用 ncp 延迟命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.denylogin:
-                description: Allow use of the ncp denylogin command.
+                description: 允许使用 ncp 拒绝登录命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.allowlogin:
-                description: Allow use of the ncp allowlogin command.
+                description: 允许使用 ncp 允许登录命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.version:
-                description: Allow use of the ncp version command.
+                description: 允许使用 ncp 版本命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.removeplayer:
-                description: Allow use of the ncp removeplayer command.
+                description: 允许使用 ncp 移除玩家命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.commands:
-                description: Allow use of the ncp commands command.
+                description: 允许使用 ncp 命令命令.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.log:
-                description: Show various stats/debugging information. [Incomplete, experimental.]
+                description: 显示各种统计/调试信息. [不完整，实验性.]
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.reset:
-                description: Reset statistics or debugging counters.
+                description: 重置统计或调试计数器.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.debug:
-                description: Start logging debug information for a player (lots of output, log file).
+                description: 为玩家开始记录调试信息（大量输出，日志文件）.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.stopwatch:
-                description: Stop watch functionality. See tab-completion and feedback.
+                description: 停表功能. 查看补全和反馈.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
     
     # Bypass permissions (other than checks):
     nocheatplus.bypass:
-        description: Bypass other features than checks.
+        description: 绕过除检查外的其他功能.
         children:
             nocheatplus.bypass.denylogin:
-                description: Bypass the login denial, such as exists with the ncp denylogin command.
+                description: 绕过登录拒绝，例如与 ncp 拒绝登录命令相关的.
     
     # Various shortcuts:
     nocheatplus.shortcut:
-        description: 'Shortcut permissions designed to be somewhat "safe" to give (see children permissions).'
+        description: '设计为相对“安全”授予的快捷权限（查看子权限）.'
         children:
             nocheatplus.shortcut.info:
-                description: Info commands about players.
+                description: 关于玩家的信息命令.
                 children:
                     nocheatplus.command.notify: true
                     nocheatplus.command.top: true
@@ -461,7 +459,7 @@ permissions:
                     nocheatplus.command.stopwatch: true
                     # TODO: Put lag here ?
             nocheatplus.shortcut.monitor:
-                description: All monitoring commands such as player and system info (including plugins).
+                description: 所有监控命令，如玩家和系统信息（包括插件）.
                 children:
                     nocheatplus.shortcut.info: true
                     nocheatplus.command.version: true
@@ -470,7 +468,7 @@ permissions:
                     nocheatplus.filter.command: true
                     # TODO: inspect ?
             nocheatplus.shortcut.safeadmin:
-                description: 'Permissions for "safe" administration, excluding rather critical operations like reload and action commands like ban/delay (arbitrary console commands!). Fit for "heavy" mods, include temp-kicking and exemptions, does bypass login-denial.'
+                description: '“安全”管理权限，不包括诸如重新加载和操作命令（如禁言/延迟等任意控制台命令!）等关键操作. 适合“重度”管理员，包括临时踢出和豁免，绕过登录拒绝.'
                 children:
                     nocheatplus.shortcut.monitor: true
                     nocheatplus.command.allowlogin: true
@@ -481,19 +479,19 @@ permissions:
                     nocheatplus.bypass.denylogin: true
                     # TODO: inspect ?
             nocheatplus.shortcut.bypass:
-                description: Bypass everything that can be bypassed.
+                description: 绕过所有可以绕过的内容.
                 children:
                     nocheatplus.bypass: true
                     nocheatplus.filter.command: true
                     nocheatplus.shortcut.cheater:
-                        description: Allow use of all cheating, excludes bypassing temp-kick and command protection and similar.
+                        description: 允许使用所有作弊行为，不包括绕过临时踢出和命令保护等.
                         children:
                             nocheatplus.checks: true
                             nocheatplus.mods: true
               
     # Shortcut: convenient testing.
     nocheatplus.tester:
-        description: Monitoring and debugging permissions, including removing data and exemption handling for oneself.
+        description: 监控和调试权限，包括为自己移除数据和豁免处理.
         children:
             # TODO: Might just inherit from shortcut.info.
             nocheatplus.shortcut.monitor: true
@@ -504,11 +502,11 @@ permissions:
     
     # Shortcut: full administrator without check-bypass-permissions:
     nocheatplus.admin:
-        description: "Give the player all administration rights (does not exclude from checks), do not give lightly - if in doubt use shortcut permissions for moderators (nocheatplus.shortcut.monitor|safeadmin ...)."
+        description: "给予玩家所有管理权限（不包括检查绕过），不要轻易授予 - 如果不确定，请使用为管理员设计的快捷权限（nocheatplus.shortcut.monitor|safeadmin ...）."
         children:
             # TODO: move debug permission (debug.XYZ?).
             nocheatplus.admin.debug:
-                description: Receive debugging information (or cause console logs on other occasions).
+                description: 接收调试信息（或在其他场合导致控制台日志）.
             
             nocheatplus.bypass.denylogin: true
             nocheatplus.filter.command: true
@@ -516,7 +514,7 @@ permissions:
     
     # OP thing
     nocheatplus:
-        description: Allow the player to bypass all checks and give him all administration permissions.
+        description: 允许玩家绕过所有检查并给予他所有管理权限.
         children:
             nocheatplus.admin: true
             nocheatplus.shortcut.bypass: true
