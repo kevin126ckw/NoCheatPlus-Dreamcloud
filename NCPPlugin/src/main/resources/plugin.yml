@@ -17,9 +17,9 @@ softdepend:
 - floodgate
 
 commands:
-    nocheatplus:
-        aliases: [ncp]
-        description: NoCheatPlus 命令.
+    lookingac:
+        aliases: [lac]
+        description: LookingAnticheat 命令.
         # permissions: nocheatplus.admin.(...)
         usage: |
                §6§l+§7§l§m------------------§6§l+
@@ -348,7 +348,7 @@ permissions:
                     nocheatplus.notify: true
             nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.reload:
-                description: 允许玩家重新加载 NoCheatPlus 配置.
+                description: 允许玩家重新加载 LookingAnticheat 配置.
                 children:
                     nocheatplus.filter.command.nocheatplus: true
             nocheatplus.command.top:
